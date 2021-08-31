@@ -31,7 +31,7 @@
   <name>Common</name>
 
   <properties>
-    <flatc.download.skip>false</flatc.download.skip>
+    <flatc.download.skip>true</flatc.download.skip>
     <flatc.executable>${project.build.directory}/flatc-${os.detected.classifier}-${fbs.version}.exe</flatc.executable>
     <flatc.generated.files>${project.build.directory}/generated-sources/flatc</flatc.generated.files>
     <os-maven-plugin.version>1.5.0.Final</os-maven-plugin.version>
