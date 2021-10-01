@@ -33,11 +33,11 @@
   <packaging>pom</packaging>
 
   <modules>
-    <!-- <module>elasticsearch</module> -->
+    <module>elasticsearch</module>
     <module>hdfs</module>
     <module>hive-function-registry</module>
     <module>pdfs</module>
-    <!-- <module>mongo</module> -->
+    <module>mongo</module>
     <module>nas</module>
     <module>hive-common</module>
     <module>hive</module>
@@ -54,12 +54,12 @@
         </property>
       </activation>
       <modules>
-        <!-- <module>adls</module>
-        <module>azure</module> -->
+        <module>adls</module>
+        <module>azure</module>
         <module>s3</module>
         <module>hive3</module>
-        <!-- <module>awsglue</module> -->
-        <!-- <module>gcs</module> -->
+        <module>awsglue</module>
+        <module>gcs</module>
       </modules>
     </profile>
     <profile>

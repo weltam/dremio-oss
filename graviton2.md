@@ -1,3 +1,21 @@
+# nodejs
+
+```sh
+sudo apt install npm
+```
+
+# fixing sentry cli
+```sh
+cd dremio-oss/dac/ui
+
+npm install @sentry/cli
+```
+
+ref
+https://github.com/getsentry/sentry-cli
+https://stackoverflow.com/questions/62971089/npm-install-use-built-package-for-arm-processor-sentry
+https://github.com/getsentry/sentry-cli/issues/592
+
 # java 8
 
 ```sh
