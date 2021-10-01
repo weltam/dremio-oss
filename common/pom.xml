@@ -32,7 +32,8 @@
 
   <properties>
     <flatc.download.skip>true</flatc.download.skip>
-    <flatc.executable>${project.build.directory}/flatc-${os.detected.classifier}-${fbs.version}.exe</flatc.executable>
+    <flatc.executable>flatc</flatc.executable>
+    <!-- <flatc.executable>${project.build.directory}/flatc-${os.detected.classifier}-${fbs.version}.exe</flatc.executable> -->
     <flatc.generated.files>${project.build.directory}/generated-sources/flatc</flatc.generated.files>
     <os-maven-plugin.version>1.5.0.Final</os-maven-plugin.version>
   </properties>
@@ -205,6 +206,13 @@
       <groupId>io.protostuff</groupId>
       <artifactId>protostuff-json</artifactId>
     </dependency>
+
+    <dependency>
+        <groupId>com.google.flatbuffers</groupId>
+        <artifactId>flatbuffers-java</artifactId>
+        <version>${fbs.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>

@@ -32,12 +32,12 @@
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-protocol</artifactId>
@@ -166,12 +166,12 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <dependencies>
-          <dependency>
+          <!-- <dependency>
             <groupId>com.dremio</groupId>
             <artifactId>dremio-common</artifactId>
             <version>${project.version}</version>
             <classifier>tests</classifier>
-          </dependency>
+          </dependency> -->
         </dependencies>
         <executions>
           <execution>

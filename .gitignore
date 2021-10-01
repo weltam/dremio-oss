@@ -41,3 +41,5 @@ jetbrains_config.js
 .cproject
 CTestTestfile.cmake
 tsconfig.json
+flatbuffers-1.9.0
+bin/
