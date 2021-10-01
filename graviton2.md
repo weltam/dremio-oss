@@ -25,6 +25,20 @@ sdk use java 8.0.302-zulu
 sdk default java 8.0.302-zulu
 ```
 
+# fix rockdb
+
+change version to 6.4.6
+
+```xml
+<rocksdb.version>6.4.6</rocksdb.version>
+```
+
+ref
+
+https://github.com/facebook/rocksdb/issues/5559#issuecomment-559003725
+
+https://github.com/facebook/rocksdb/wiki/RocksJava-Basics
+
 # install open ssl
 
 https://fedingo.com/how-to-install-openssl-in-ubuntu/ 
