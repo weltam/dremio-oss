@@ -87,7 +87,7 @@
       <groupId>com.dremio.sabot</groupId>
       <artifactId>dremio-sabot-kernel</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
       <classifier>tests</classifier>
@@ -107,7 +107,7 @@
       <classifier>tests</classifier>
       <version>${project.version}</version>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-common</artifactId>
@@ -169,14 +169,14 @@
       <artifactId>dremio-attach-tool</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-jobs</artifactId>
       <version>${project.version}</version>
       <classifier>tests</classifier>
       <type>test-jar</type>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
   </dependencies>
 
   <build>

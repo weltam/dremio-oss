@@ -394,7 +394,7 @@
       </exclusions>
     </dependency>
 
-    <!-- Test Dependencies -->
+    <!-- Test Dependencies 
     <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
@@ -409,7 +409,7 @@
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
-
+    -->
   </dependencies>
 
   <build>

@@ -1378,12 +1378,12 @@ limitations under the License.
           </exclusion>
         </exclusions>
       </dependency>
-      <dependency>
+      <!-- <dependency>
         <groupId>com.dremio</groupId>
         <artifactId>dremio-common</artifactId>
         <version>${project.version}</version>
         <classifier>tests</classifier>
-      </dependency>
+      </dependency> -->
       <dependency>
         <groupId>com.dremio</groupId>
         <artifactId>dremio-dac-common</artifactId>
@@ -1394,12 +1394,12 @@ limitations under the License.
         <artifactId>dremio-dac-backend</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <dependency>
+      <!-- <dependency>
         <groupId>com.dremio</groupId>
         <artifactId>dremio-dac-backend</artifactId>
         <classifier>tests</classifier>
         <version>${project.version}</version>
-      </dependency>
+      </dependency> -->
       <dependency>
         <groupId>com.dremio.distribution</groupId>
         <artifactId>dremio-distribution-resources</artifactId>
@@ -1430,12 +1430,12 @@ limitations under the License.
         <artifactId>dremio-services-coordinator</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <dependency>
+      <!-- <dependency>
         <groupId>com.dremio.services</groupId>
         <artifactId>dremio-services-coordinator</artifactId>
         <version>${project.version}</version>
         <classifier>tests</classifier>
-      </dependency>
+      </dependency> -->
       <dependency>
         <groupId>com.dremio.services</groupId>
         <artifactId>dremio-services-datastore</artifactId>
@@ -1466,12 +1466,12 @@ limitations under the License.
         <artifactId>dremio-services-namespace</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <dependency>
+      <!-- <dependency>
         <groupId>com.dremio.services</groupId>
         <artifactId>dremio-services-namespace</artifactId>
         <version>${project.version}</version>
         <classifier>tests</classifier>
-      </dependency>
+      </dependency> -->
       <dependency>
         <groupId>com.dremio.services</groupId>
         <artifactId>dremio-services-nessie</artifactId>
@@ -1502,12 +1502,12 @@ limitations under the License.
         <artifactId>dremio-services-users</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <dependency>
+      <!-- <dependency>
         <groupId>com.dremio.services</groupId>
         <artifactId>dremio-services-users</artifactId>
         <version>${project.version}</version>
         <classifier>tests</classifier>
-      </dependency>
+      </dependency> -->
       <dependency>
         <groupId>com.dremio</groupId>
         <artifactId>dremio-protocol</artifactId>
@@ -1528,12 +1528,12 @@ limitations under the License.
         <artifactId>dremio-sabot-kernel</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <dependency>
+      <!-- <dependency>
         <groupId>com.dremio.sabot</groupId>
         <artifactId>dremio-sabot-kernel</artifactId>
         <classifier>tests</classifier>
         <version>${project.version}</version>
-      </dependency>
+      </dependency> -->
       <dependency>
         <groupId>com.dremio.plugins</groupId>
         <artifactId>dremio-jdbc-plugin</artifactId>
@@ -3274,7 +3274,7 @@ limitations under the License.
       </dependency>
       <dependency>
         <groupId>org.wildfly.openssl</groupId>
-        <artifactId>wildfly-openssl</artifactId>
+        <artifactId>wildfly-openssl-java</artifactId>
         <version>1.0.9.Final</version>
         <scope>runtime</scope>
       </dependency>
@@ -3286,14 +3286,14 @@ limitations under the License.
     <module>connector</module>
     <module>client</module>
     <module>provision</module>
-    <!-- <module>contrib</module> -->
+    <module>contrib</module>
     <module>dac</module>
     <module>distribution</module>
     <module>sabot</module>
     <module>protocol</module>
     <module>plugins</module>
     <module>services</module>
-    <!-- <module>tools</module> -->
+    <module>tools</module>
   </modules>
 
   <repositories>

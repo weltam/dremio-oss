@@ -63,7 +63,7 @@
       <version>${project.version}</version>
     </dependency>
 
-    <!-- Test dependencies -->
+    <!-- Test dependencies 
     <dependency>
       <groupId>com.dremio.sabot</groupId>
       <artifactId>dremio-sabot-kernel</artifactId>
@@ -76,6 +76,7 @@
       <classifier>tests</classifier>
       <scope>test</scope>
     </dependency>
+    -->
     <dependency>
       <groupId>de.huxhorn.lilith</groupId>
       <artifactId>de.huxhorn.lilith.logback.appender.multiplex-classic</artifactId>

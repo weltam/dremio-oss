@@ -133,12 +133,12 @@
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-namespace</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-namespace</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
 
     <dependency>
       <groupId>com.dremio.services</groupId>
@@ -206,11 +206,11 @@
       <version>0.2.5</version>
     </dependency>
 
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.data</groupId>
       <artifactId>dremio-tpch-sample-data</artifactId>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>org.apache.arrow</groupId>
       <artifactId>arrow-vector</artifactId>
@@ -564,7 +564,7 @@
       <artifactId>dremio-sabot-logical</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
       <classifier>tests</classifier>
@@ -576,7 +576,7 @@
       <version>${project.version}</version>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-spill</artifactId>
@@ -1057,12 +1057,12 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <dependencies>
-          <dependency>
+          <!-- <dependency>
             <groupId>com.dremio</groupId>
             <artifactId>dremio-common</artifactId>
             <version>${project.version}</version>
             <classifier>tests</classifier>
-          </dependency>
+          </dependency> -->
         </dependencies>
         <executions>
           <execution>

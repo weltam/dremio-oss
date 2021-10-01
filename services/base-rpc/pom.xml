@@ -41,12 +41,14 @@
       <artifactId>dremio-services-telemetry-api</artifactId>
       <version>${project.version}</version>
     </dependency>
+    <!-- 
     <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
     </dependency>
+    -->
     <dependency>
       <groupId>org.apache.arrow</groupId>
       <artifactId>arrow-memory-core</artifactId>

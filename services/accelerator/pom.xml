@@ -85,6 +85,7 @@
       <artifactId>de.huxhorn.lilith.logback.appender.multiplex-classic</artifactId>
       <scope>test</scope>
     </dependency>
+    <!--
     <dependency>
       <groupId>com.dremio.sabot</groupId>
       <artifactId>dremio-sabot-kernel</artifactId>
@@ -97,6 +98,7 @@
       <classifier>tests</classifier>
       <scope>test</scope>
     </dependency>
+    -->
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>

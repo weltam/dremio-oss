@@ -44,7 +44,7 @@
     </dependency>
     
 
-    <!-- Test dependencies -->
+    <!-- Test dependencies 
     <dependency>
       <groupId>com.dremio.sabot</groupId>
       <artifactId>dremio-sabot-kernel</artifactId>
@@ -63,6 +63,7 @@
       <version>2.1.1</version>
       <scope>test</scope>
     </dependency>
+    -->
     
     <dependency>
       <groupId>de.huxhorn.lilith</groupId>

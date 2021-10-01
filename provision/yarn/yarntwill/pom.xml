@@ -90,13 +90,13 @@
       <artifactId>dremio-twill-shaded</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
       <classifier>tests</classifier>
       <version>${project.version}</version>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -124,4 +124,3 @@
     </plugins>
   </build>
 </project>
-

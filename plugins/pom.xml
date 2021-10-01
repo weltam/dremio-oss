@@ -36,9 +36,9 @@
     <!-- <module>elasticsearch</module> -->
     <module>hdfs</module>
     <module>hive-function-registry</module>
-    <!-- <module>pdfs</module> -->
+    <module>pdfs</module>
     <!-- <module>mongo</module> -->
-    <!-- <module>nas</module> -->
+    <module>nas</module>
     <module>hive-common</module>
     <module>hive</module>
     <module>hive2</module>

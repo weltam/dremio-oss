@@ -53,7 +53,7 @@
       <artifactId>protobuf-java</artifactId>
       <version>${protobuf.version}</version>
     </dependency>
-    <!-- test dependencies -->
+    <!-- test dependencies 
     <dependency>
       <groupId>com.dremio.sabot</groupId>
       <artifactId>dremio-sabot-kernel</artifactId>
@@ -75,6 +75,7 @@
       <classifier>tests</classifier>
       <scope>test</scope>
     </dependency>
+    -->
     <!-- 
          Junit dependency has to be before mockito
          as both depends on hamcrest, but with different versions

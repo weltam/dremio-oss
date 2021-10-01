@@ -995,13 +995,13 @@
       <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.sabot</groupId>
       <artifactId>dremio-sabot-kernel</artifactId>
       <version>${project.version}</version>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-common</artifactId>
@@ -1299,7 +1299,7 @@
       <groupId>com.dremio</groupId>
       <artifactId>dremio-dac-backend</artifactId>
       <version>${project.version}</version>
-      <classifier>tests</classifier>
+      
       <scope>test</scope>
       <exclusions>
         <exclusion>
@@ -1308,14 +1308,14 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-jobs</artifactId>
       <version>${project.version}</version>
       <classifier>tests</classifier>
       <type>test-jar</type>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
   </dependencies>
 
   <build>
@@ -1447,12 +1447,12 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <dependencies>
-          <dependency>
+          <!-- <dependency>
             <groupId>com.dremio</groupId>
             <artifactId>dremio-common</artifactId>
             <version>${project.version}</version>
             <classifier>tests</classifier>
-          </dependency>
+          </dependency> -->
           <dependency>
             <groupId>com.dremio</groupId>
             <artifactId>dremio-common</artifactId>

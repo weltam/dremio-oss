@@ -7,6 +7,26 @@ sdk use java 8.0.302-zulu
 sdk default java 8.0.302-zulu
 ```
 
+# install open ssl
+
+https://fedingo.com/how-to-install-openssl-in-ubuntu/ 
+
+# fix open ssl issues
+
+https://github.com/wildfly-security/wildfly-openssl
+
+```xml
+    <dependency>
+        <groupId>org.wildfly.openssl</groupId>
+        <artifactId>wildfly-openssl-java</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+```
+
+if you want to recompile and bundle native libs follow this
+
+https://support.huaweicloud.com/intl/en-us/prtg-tpdl-kunpengbds/kunpengwildflyopenssl_02_0004.html
+
 # install python2
 
 ```sh
@@ -67,11 +87,9 @@ cd dremio
 # ./mvnw -T 1C clean compile -DskipTests -Dmaven.test.skip --offline
 
 # clean & with internet
-./mvnw -T 1C clean install -DskipTests -Dmaven.test.skip -Ddremio.oss-only=true
+./mvnw -T 1C clean install -DskipTests -Dmaven.test.skip=true -Ddremio.oss-only=true -e
 
-./mvnw -T 1C clean install -DskipTests -Ddremio.oss-only=true
-
-./mvnw -T 1C install -DskipTests -Ddremio.oss-only=true
+./mvnw -T 1C install -DskipTests -Dmaven.test.skip -Ddremio.oss-only=true
 
 # no internet
 ./mvnw -T 1C clean install -DskipTests -Dmaven.test.skip --offline

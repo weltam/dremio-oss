@@ -60,7 +60,7 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.plugins</groupId>
       <artifactId>dremio-hive-plugin</artifactId>
       <classifier>tests</classifier>
@@ -76,7 +76,7 @@
           <artifactId>*</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.dremio.sabot</groupId>
       <artifactId>dremio-sabot-kernel</artifactId>
@@ -101,7 +101,7 @@
       <groupId>org.apache.calcite</groupId>
       <artifactId>calcite-core</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
       <classifier>tests</classifier>
@@ -114,7 +114,7 @@
       <version>${project.version}</version>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-yarn-api</artifactId>
@@ -202,12 +202,12 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <dependencies>
-          <dependency>
+          <!-- <dependency>
             <groupId>com.dremio</groupId>
             <artifactId>dremio-common</artifactId>
             <version>${project.version}</version>
             <classifier>tests</classifier>
-          </dependency>
+          </dependency> -->
         </dependencies>
         <executions>
           <execution>

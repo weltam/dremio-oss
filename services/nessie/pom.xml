@@ -35,12 +35,12 @@
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-nessie-api</artifactId>

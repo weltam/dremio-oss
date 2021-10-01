@@ -36,12 +36,12 @@
       <groupId>com.dremio</groupId>
       <artifactId>dremio-connector</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-protocol</artifactId>
@@ -116,12 +116,12 @@
       <groupId>com.google.flatbuffers</groupId>
       <artifactId>flatbuffers-java</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-users</artifactId>
-      <classifier>tests</classifier>
+      
       <scope>test</scope>
-    </dependency>
+    </dependency> 
     <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-connector</artifactId>
@@ -129,6 +129,7 @@
       <classifier>tests</classifier>
       <scope>test</scope>
     </dependency>
+    -->
     <dependency>
       <groupId>org.xerial.snappy</groupId>
       <artifactId>snappy-java</artifactId>

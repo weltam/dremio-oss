@@ -42,14 +42,14 @@
       <classifier>proto</classifier>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-jobs</artifactId>
       <version>${project.version}</version>
       <classifier>tests</classifier>
       <type>test-jar</type>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-namespace</artifactId>
@@ -115,12 +115,12 @@
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-namespace</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-namespace</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-scheduler</artifactId>
@@ -138,12 +138,12 @@
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-coordinator</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-coordinator</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-execselector</artifactId>
@@ -161,12 +161,12 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-users</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-access</artifactId>
@@ -194,10 +194,10 @@
       <groupId>com.dremio.sabot</groupId>
       <artifactId>dremio-sabot-kernel</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.data</groupId>
       <artifactId>dremio-tpch-sample-data</artifactId>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.beust</groupId>
       <artifactId>jcommander</artifactId>
@@ -251,25 +251,25 @@
       <artifactId>dremio-services-statistics</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.sabot</groupId>
       <artifactId>dremio-sabot-kernel</artifactId>
       <classifier>tests</classifier>
       <version>${project.version}</version>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.dremio.plugins</groupId>
       <artifactId>dremio-nas-plugin</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
       <classifier>tests</classifier>
       <version>${project.version}</version>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.dremio.services</groupId>
       <artifactId>dremio-services-credentials</artifactId>

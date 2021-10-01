@@ -60,7 +60,7 @@
       <artifactId>dremio-client-base</artifactId>
       <version>${project.version}</version>
     </dependency>    
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio</groupId>
       <artifactId>dremio-common</artifactId>
       <classifier>tests</classifier>
@@ -76,7 +76,7 @@
       <artifactId>dremio-sabot-kernel</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
