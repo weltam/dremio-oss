@@ -18,6 +18,7 @@ sudo apt install python2-minimal
 # install flatbufferc
 
 ```sh
+
 wget https://github.com/google/flatbuffers/archive/refs/tags/v1.9.0.tar.gz
 
 tar -xvf v1.9.0.tar.gz
@@ -37,6 +38,9 @@ cmake .. -D FLATBUFFERS_CXX_FLAGS="-Wno-error" -D FLATBUFFERS_BUILD_TESTS="false
 make
 
 sudo make install
+
+Reference
+https://stackoverflow.com/questions/55394537/how-to-install-flatc-and-flatbuffers-on-linux-ubuntu
 ```
 
 # install protobuf
@@ -45,7 +49,7 @@ sudo make install
 sudo apt install protobuf-compiler
 ```
 
-https://stackoverflow.com/questions/55394537/how-to-install-flatc-and-flatbuffers-on-linux-ubuntu
+
 
 # compile dremio on graviton2
 
@@ -64,6 +68,10 @@ cd dremio
 
 # clean & with internet
 ./mvnw -T 1C clean install -DskipTests -Dmaven.test.skip -Ddremio.oss-only=true
+
+./mvnw -T 1C clean install -DskipTests -Ddremio.oss-only=true
+
+./mvnw -T 1C install -DskipTests -Ddremio.oss-only=true
 
 # no internet
 ./mvnw -T 1C clean install -DskipTests -Dmaven.test.skip --offline

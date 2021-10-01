@@ -49,8 +49,8 @@
     <module>jobtelemetry</module>
     <module>maestro</module>
     <module>namespace</module>
-    <module>nessie</module>
-    <module>nessie-api</module>
+    <!-- <module>nessie</module>
+    <module>nessie-api</module> -->
     <module>options</module>
     <module>resourcescheduler</module>
     <module>scheduler</module>
