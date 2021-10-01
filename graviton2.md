@@ -127,3 +127,10 @@ https://www.jrebel.com/blog/how-to-speed-up-your-maven-build
 https://mincong.io/2018/11/01/speed-up-the-maven-build/
 
 https://stackoverflow.com/questions/32368976/ways-to-make-maven-build-faster
+
+# run dremio
+
+```sh
+export DREMIO_VERSION=17.0.0-202107060524010627-31b5222b
+distribution/server/target/dremio-oss-${DREMIO_VERSION}/dremio-oss-${DREMIO_VERSION}/bin/dremio start
+```

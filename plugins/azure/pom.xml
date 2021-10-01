@@ -85,7 +85,7 @@
     </dependency>
 
     <!-- Test dependencies -->
-    <dependency>
+    <!-- <dependency>
       <groupId>com.dremio.sabot</groupId>
       <artifactId>dremio-sabot-kernel</artifactId>
       <classifier>tests</classifier>
@@ -96,7 +96,7 @@
       <artifactId>dremio-common</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
 
 
     <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
