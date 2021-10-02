@@ -1,3 +1,9 @@
+# install linux build tools
+
+```sh
+sudo apt install build-essential pkg-config flex bison libcurl-dev libcurl4-openssl-dev
+```
+
 # nodejs
 
 ```sh
@@ -101,7 +107,74 @@ https://stackoverflow.com/questions/55394537/how-to-install-flatc-and-flatbuffer
 sudo apt install protobuf-compiler
 ```
 
+# build aws sdk
 
+
+```sh
+mkdir build && cd build
+
+cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/usr/local/bin
+make
+make install
+```
+
+# install arrow
+
+```sh
+# upgrade cmake
+sudo snap install cmake --classic
+
+git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+./bootstrap-vcpkg.sh
+./vcpkg integrate install
+# ./vcpkg install arrow
+export VCPKG_FORCE_SYSTEM_BINARIES=1
+./vcpkg install arrow
+
+git clone https://github.com/apache/arrow.git
+
+cd arrow
+
+export VCPKG_FORCE_SYSTEM_BINARIES=1
+
+vcpkg install \
+  --x-manifest-root cpp \
+  --feature-flags=versions \
+  --clean-after-build
+
+git clone https://github.com/apache/arrow.git
+cd arrow/cpp
+mkdir release
+cd release
+cmake .. -GNinja
+ninja
+
+# make
+```
+
+ref
+https://graspingtech.com/upgrade-cmake/
+https://arrow.apache.org/install/
+
+# compile arrow java
+
+## compile netty
+
+```sh
+sudo apt-get install autoconf automake libtool make tar gcc \
+                  libaio-dev libssl-dev libapr1-dev \
+                  lksctp-tools
+```
+
+
+https://github.com/apache/arrow/tree/master/java
+
+```sh
+git submodule update --init --recursive # Needed for flight
+cd java
+mvn install
+```
 
 # compile dremio on graviton2
 
@@ -145,6 +218,38 @@ https://stackoverflow.com/questions/32368976/ways-to-make-maven-build-faster
 # run dremio
 
 ```sh
+
+
+# start
 export DREMIO_VERSION=17.0.0-202107060524010627-31b5222b
 distribution/server/target/dremio-oss-${DREMIO_VERSION}/dremio-oss-${DREMIO_VERSION}/bin/dremio start
+
+# stop
+distribution/server/target/dremio-oss-${DREMIO_VERSION}/dremio-oss-${DREMIO_VERSION}/bin/dremio stop
+```
+
+# login dremio web
+
+http://localhost:9047
+
+
+# add nessie jar
+
+```xml
+<!-- https://mvnrepository.com/artifact/org.projectnessie/nessie-server-store -->
+<dependency>
+    <groupId>org.projectnessie</groupId>
+    <artifactId>nessie-server-store</artifactId>
+    <version>0.4.0</version>
+</dependency>
+```
+
+```sh
+cd distribution/server/target/dremio-oss-${DREMIO_VERSION}/dremio-oss-${DREMIO_VERSION}/jars
+wget https://repo1.maven.org/maven2/org/projectnessie/nessie-server-store/0.4.0/nessie-server-store-0.4.0.jar
+wget https://repo1.maven.org/maven2/org/projectnessie/nessie-model/0.4.0/nessie-model-0.4.0.jar
+wget https://repo1.maven.org/maven2/org/projectnessie/nessie-services/0.4.0/nessie-services-0.4.0.jar
+wget https://repo1.maven.org/maven2/org/projectnessie/nessie-versioned-memory/0.4.0/nessie-versioned-memory-0.4.0.jar
+wget https://repo1.maven.org/maven2/org/projectnessie/nessie-versioned-spi/0.4.0/nessie-versioned-spi-0.4.0.jar
+wget https://repo1.maven.org/maven2/org/projectnessie/nessie-versioned-tests/0.4.0/nessie-versioned-tests-0.4.0.jar
 ```
