@@ -145,9 +145,8 @@ vcpkg install \
 
 git clone https://github.com/apache/arrow.git
 cd arrow/cpp
-mkdir release
-cd release
-cmake .. -GNinja
+rm -rf release && mkdir release && cd release
+cmake .. -GNinja -DARROW_GANDIVA=ON -DARROW_GANDIVA_JAVA=ON
 ninja
 
 # make
@@ -164,7 +163,13 @@ https://arrow.apache.org/install/
 ```sh
 sudo apt-get install autoconf automake libtool make tar gcc \
                   libaio-dev libssl-dev libapr1-dev \
-                  lksctp-tools
+                  lksctp-tools libsnappy-dev
+```
+
+## change netty dependencies
+
+```xml
+<dep.netty.version>4.1.60.Final</dep.netty.version>
 ```
 
 
@@ -174,6 +179,7 @@ https://github.com/apache/arrow/tree/master/java
 git submodule update --init --recursive # Needed for flight
 cd java
 mvn install
+mvn install -P arrow-jni -am -Darrow.cpp.build.dir=/home/ubuntu/awsindo/arrow/cpp/build
 ```
 
 # compile dremio on graviton2
@@ -185,11 +191,13 @@ cd dremio
 
 # ./mvnw clean install -DskipTests -Dlicense.skip=true -Ddremio.oss-only=true
 
-# ./mvnw -T 1C compile -DskipTests -Dmaven.test.skip
-
 # temporary skip ui
 # ./mvnw -T 1C clean compile -DskipTests -Dmaven.test.skip
 # ./mvnw -T 1C clean compile -DskipTests -Dmaven.test.skip --offline
+
+# full build
+
+./mvnw -T 1C clean install -Ddremio.oss-only=true
 
 # clean & with internet
 ./mvnw -T 1C clean install -DskipTests -Dmaven.test.skip=true -Ddremio.oss-only=true -e
