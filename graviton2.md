@@ -118,11 +118,38 @@ make
 make install
 ```
 
+# install llvm
+
+https://llvm.org/docs/HowToBuildOnARM.html
+
+```sh
+git clone https://github.com/llvm/llvm-project.git
+cd llvm-project
+mkdir build
+cd build
+cmake .. -G Ninja -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;lldb;" \
+                    -DCMAKE_BUILD_TYPE=Release \
+                    -DLLVM_TARGETS_TO_BUILD="ARM;AArch64" ../llvm
+
+ninja 
+ninja install
+```
+
+additional
+
+https://llvm.org/docs/GettingStarted.html
+
 # install arrow
 
 ```sh
 # upgrade cmake
 sudo snap install cmake --classic
+
+# sudo apt install clang-13 lldb-13 lld-13 clangd-13
+
+
+reference
+https://apt.llvm.org/
 
 git clone https://github.com/Microsoft/vcpkg.git
 cd vcpkg
@@ -146,15 +173,19 @@ vcpkg install \
 git clone https://github.com/apache/arrow.git
 cd arrow/cpp
 rm -rf release && mkdir release && cd release
-cmake .. -GNinja -DARROW_GANDIVA=ON -DARROW_GANDIVA_JAVA=ON
+cmake .. -GNinja -DARROW_GANDIVA=ON -DARROW_GANDIVA_JAVA=ON -DARROW_DEPENDENCY_SOURCE=VCPKG
 ninja
-
+ninja install 
 # make
 ```
 
 ref
 https://graspingtech.com/upgrade-cmake/
 https://arrow.apache.org/install/
+
+# issues arrow with apple m1
+https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
+https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
 
 # compile arrow java
 
