@@ -139,6 +139,8 @@ additional
 
 https://llvm.org/docs/GettingStarted.html
 
+
+
 # install arrow
 
 ```sh
@@ -148,14 +150,12 @@ sudo snap install cmake --classic
 # sudo apt install clang-13 lldb-13 lld-13 clangd-13
 
 
-reference
-https://apt.llvm.org/
-
 git clone https://github.com/Microsoft/vcpkg.git
 cd vcpkg
 ./bootstrap-vcpkg.sh
 ./vcpkg integrate install
 # ./vcpkg install arrow
+
 export VCPKG_FORCE_SYSTEM_BINARIES=1
 ./vcpkg install arrow
 
@@ -173,7 +173,7 @@ vcpkg install \
 git clone https://github.com/apache/arrow.git
 cd arrow/cpp
 rm -rf release && mkdir release && cd release
-cmake .. -GNinja -DARROW_GANDIVA=ON -DARROW_GANDIVA_JAVA=ON -DARROW_DEPENDENCY_SOURCE=VCPKG
+cmake .. -GNinja -DARROW_GANDIVA=ON -DARROW_GANDIVA_JAVA=ON -DARROW_DEPENDENCY_SOURCE=BUNDLED
 ninja
 ninja install 
 # make
@@ -282,6 +282,7 @@ http://localhost:9047
     <version>0.4.0</version>
 </dependency>
 ```
+
 
 ```sh
 cd distribution/server/target/dremio-oss-${DREMIO_VERSION}/dremio-oss-${DREMIO_VERSION}/jars
