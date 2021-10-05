@@ -18,6 +18,7 @@ npm install @sentry/cli
 ```
 
 ref
+
 https://github.com/getsentry/sentry-cli
 
 https://stackoverflow.com/questions/62971089/npm-install-use-built-package-for-arm-processor-sentry
