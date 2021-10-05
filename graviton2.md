@@ -19,7 +19,9 @@ npm install @sentry/cli
 
 ref
 https://github.com/getsentry/sentry-cli
+
 https://stackoverflow.com/questions/62971089/npm-install-use-built-package-for-arm-processor-sentry
+
 https://github.com/getsentry/sentry-cli/issues/592
 
 # java 8
@@ -99,6 +101,7 @@ sudo make install
 
 Reference
 https://stackoverflow.com/questions/55394537/how-to-install-flatc-and-flatbuffers-on-linux-ubuntu
+
 ```
 
 # install protobuf
@@ -181,10 +184,12 @@ ninja install
 
 ref
 https://graspingtech.com/upgrade-cmake/
+
 https://arrow.apache.org/install/
 
 # issues arrow with apple m1
 https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
+
 https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
 
 # compile arrow java
