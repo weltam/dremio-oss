@@ -41,3 +41,5 @@ jetbrains_config.js
 .cproject
 CTestTestfile.cmake
 tsconfig.json
+*.tar.gz
+graviton2/redis-2.8.18
