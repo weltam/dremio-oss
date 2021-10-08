@@ -11,6 +11,15 @@ sudo apt install npm
 ```
 
 # fixing sentry cli
+
+execute 
+
+```shell
+graviton2/dac-ui.sh
+```
+
+or manually
+
 ```sh
 cd dremio-oss/dac/ui
 
