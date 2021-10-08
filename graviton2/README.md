@@ -233,9 +233,10 @@ we need this for emmbeded-redis
 
 https://github.com/ozimov/embedded-redis
 
-this also required the redis binaries.
+this also required the redis binaries. run this script to build redis
 
 ```sh
+./graviton2/redis.sh
 ```
 
 

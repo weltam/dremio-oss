@@ -17,6 +17,7 @@ package com.dremio.test.redis;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.io.File;
 
 import redis.embedded.RedisServer;
 
@@ -49,7 +50,7 @@ class SingleRedisResource extends AbstractRedisResource {
 
   @Override
   protected void before() throws Throwable {
-    redisServer = new RedisServer(getPort());
+    redisServer = new RedisServer(new File("../../graviton2/redis-2.8.18/src/redis-server"), getPort());
     redisServer.start();
     super.before();
   }
