@@ -195,13 +195,16 @@ Reference
 <dep.netty.version>4.1.60.Final</dep.netty.version>
 ```
 
+## build arrow java library
+
 https://github.com/apache/arrow/tree/master/java
 
 ```sh
-git submodule update --init --recursive # Needed for flight
-cd java
-mvn install
-mvn install -P arrow-jni -am -Darrow.cpp.build.dir=/home/ubuntu/awsindo/arrow/cpp/build
+graviton2/arrow-java.sh
+# git submodule update --init --recursive # Needed for flight
+# cd java
+# mvn install
+# mvn install -P arrow-jni -am -Darrow.cpp.build.dir=/home/ubuntu/awsindo/arrow/cpp/build
 ```
 
 
