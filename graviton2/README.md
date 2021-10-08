@@ -268,7 +268,7 @@ cd dremio
 
 # full build
 
-./mvnw -T 1C clean install -Ddremio.oss-only=true
+./mvnw -T 1C clean install -Dlicense.skip=true -Ddremio.oss-only=true
 
 # clean & with internet
 ./mvnw -T 1C clean install -DskipTests -Dmaven.test.skip=true -Ddremio.oss-only=true -e
