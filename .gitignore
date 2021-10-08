@@ -43,5 +43,5 @@ CTestTestfile.cmake
 tsconfig.json
 *.tar.gz
 graviton2/redis-2.8.18
-graviton2/arrow
+graviton2/arrow-apache-arrow-4.0.0
 graviton2/llvm-project-llvmorg-12.0.1
