@@ -172,7 +172,7 @@
             </goals>
             <configuration>
               <arguments>run report:oss -- --no-write</arguments>
-              <skip>${skipTests}</skip>
+              <skip>true</skip>
             </configuration>
           </execution>
 
