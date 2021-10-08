@@ -9,39 +9,19 @@ sdk default java 8.0.302-zulu
 
 # install linux build tools
 
-```shell
-sudo apt update
-
-sudo apt install build-essential pkg-config flex bison \
-                 autoconf automake libtool make tar gcc \
-                 libcurl-dev libcurl4-openssl-dev \
-                 libaio-dev libssl-dev libapr1-dev \
-                 lksctp-tools libsnappy-dev \
-                -y
-
+```sh
+sudo apt install build-essential pkg-config flex bison libcurl-dev libcurl4-openssl-dev
 ```
 
 # nodejs
 
 ```sh
-sudo apt install npm -y
-```
-
-# install python2
-
-```sh
-sudo apt install python2-minimal -y
-```
-
-# install protobuf
-
-```sh
-sudo apt install protobuf-compiler
+sudo apt install npm
 ```
 
 # fixing sentry cli
 
-execute or run dac-ui.sh for patching the nodejs ui 
+execute 
 
 ```shell
 graviton2/dac-ui.sh
@@ -64,7 +44,7 @@ https://github.com/getsentry/sentry-cli/issues/592
 
 # fix rockdb
 
-we can just change version to 6.4.6
+change version to 6.4.6
 
 ```xml
 <rocksdb.version>6.4.6</rocksdb.version>
@@ -75,7 +55,6 @@ ref
 https://github.com/facebook/rocksdb/issues/5559#issuecomment-559003725
 
 https://github.com/facebook/rocksdb/wiki/RocksJava-Basics
-
 
 # install open ssl
 
@@ -97,41 +76,27 @@ if you want to recompile and bundle native libs follow this
 
 https://support.huaweicloud.com/intl/en-us/prtg-tpdl-kunpengbds/kunpengwildflyopenssl_02_0004.html
 
-# redis 2.8.19
-
-this require the redis binaries. run this script to build redis
+# install python2
 
 ```sh
-./graviton2/redis.sh
+sudo apt update
+sudo apt-get install build-essential
+sudo apt install python2-minimal
 ```
-
-we can compile and build from source and link to java wrapper
-
-https://github.com/ozimov/embedded-redis
-
-but i just change the code in dremio redis source by pointing to the location of the redis executable
-
-
-# need to fix gandiva
-
-run llvm.sh
-
-run gandiva.sh
-
-
 
 # install flatbufferc
 
 ```sh
+
 wget https://github.com/google/flatbuffers/archive/refs/tags/v1.9.0.tar.gz
 
 tar -xvf v1.9.0.tar.gz
 
 cd flatbuffers-1.9.0
 
+
 # https://gist.github.com/welly87/6497071f011c99c45c2b13dccaed5efb
 # cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
-## should change to Ninja for faster compilation
 
 sudo rm -rf build
 
@@ -139,28 +104,25 @@ mkdir build && cd build
 
 cmake .. -D FLATBUFFERS_CXX_FLAGS="-Wno-error" -D FLATBUFFERS_BUILD_TESTS="false" -DCMAKE_BUILD_TYPE=Release
 
-#ninja
 make
 
-# sudo ninja install
 sudo make install
 
 Reference
 https://stackoverflow.com/questions/55394537/how-to-install-flatc-and-flatbuffers-on-linux-ubuntu
 ```
 
+# install protobuf
 
+```sh
+sudo apt install protobuf-compiler
+```
 
 # build aws sdk
 
 
 ```sh
-wget https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.9.117.tar.gz
-tar -xvf 1.9.117.tar.gz
-cd aws-sdk
 mkdir build && cd build
-
-# or you can change to Ninja
 
 cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/usr/local/bin
 make
@@ -169,19 +131,13 @@ make install
 
 # install llvm
 
-## one cmd
+https://llvm.org/docs/HowToBuildOnARM.html
+
 ```sh
-sh llvm.sh
-```
-
-
-## manually
-```sh
-wget https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-12.0.1.tar.gz
-tar -xvf llvmorg-12.0.1.tar.gz
-cd llvm-project-llvmorg-12.0.1
-mkdir build && cd build
-
+git clone https://github.com/llvm/llvm-project.git
+cd llvm-project
+mkdir build
+cd build
 cmake .. -G Ninja -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;lldb;" \
                     -DCMAKE_BUILD_TYPE=Release \
                     -DLLVM_TARGETS_TO_BUILD="ARM;AArch64" ../llvm
@@ -191,8 +147,6 @@ ninja install
 ```
 
 additional
-
-https://llvm.org/docs/HowToBuildOnARM.html
 
 https://llvm.org/docs/GettingStarted.html
 
@@ -240,12 +194,19 @@ ref
 https://graspingtech.com/upgrade-cmake/
 https://arrow.apache.org/install/
 
-
 # issues arrow with apple m1
 https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
 https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
 
 # compile arrow java
+
+## compile netty
+
+```sh
+sudo apt-get install autoconf automake libtool make tar gcc \
+                  libaio-dev libssl-dev libapr1-dev \
+                  lksctp-tools libsnappy-dev
+```
 
 ## change netty dependencies
 
@@ -276,6 +237,24 @@ mvn install -P arrow-jni -am -Darrow.cpp.build.dir=/home/ubuntu/awsindo/arrow/cp
 
 
 
+
+# redis 2.8.19
+
+we need this for emmbeded-redis
+
+https://github.com/ozimov/embedded-redis
+
+this also required the redis binaries. run this script to build redis
+
+```sh
+./graviton2/redis.sh
+```
+
+run dac-ui.sh for patching the nodejs ui 
+
+run llvm.sh
+
+run gandiva.sh
 
 
 
