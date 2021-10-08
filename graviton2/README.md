@@ -71,11 +71,13 @@ reference
 1. https://github.com/facebook/rocksdb/wiki/RocksJava-Basics
 
 
-# install open ssl
+# fix open ssl
 
+
+## install open ssl
 https://fedingo.com/how-to-install-openssl-in-ubuntu/ 
 
-# fix open ssl issues
+## change open ssl dependencies version
 
 https://github.com/wildfly-security/wildfly-openssl
 
@@ -299,17 +301,12 @@ wget https://repo1.maven.org/maven2/org/projectnessie/nessie-versioned-tests/0.4
 
 # Notes
 
-disable logging 
+## disable logging 
 
 https://mkyong.com/logging/logback-disable-logging-in-unit-test/
 
-remove tpc data for testing
 
-https://community.dremio.com/t/build-failure-with-ddremio-oss-only/6638/4
-
-disable tpc data from dremio maven repository
-
-https://community.dremio.com/t/dremio-oss-build-error/6025/5
+## add dremio maven repository
 
 dremio-free: 
 http://maven.dremio.com/free/org/apache/parquet/parquet-hadoop/1.8.1-fast-201712141648170019-ab0622b/parquet-hadoop-1.8.1-fast-201712141648170019-ab0622b-tests.jar
@@ -320,3 +317,13 @@ http://maven.dremio.com/public/org/apache/parquet/parquet-hadoop/1.8.1-fast-2017
 central: 
 https://repo.maven.apache.org/maven2/org/apache/parquet/parquet-hadoop/1.8.1-fast-201712141648170019-ab0622b/parquet-hadoop-1.8.1-fast-201712141648170019-ab0622b-tests.jar
 [I
+
+### remove tpc data for testing (optional)
+
+https://community.dremio.com/t/build-failure-with-ddremio-oss-only/6638/4
+
+disable tpc data from dremio maven repository
+
+https://community.dremio.com/t/dremio-oss-build-error/6025/5
+
+## Title
