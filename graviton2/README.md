@@ -50,18 +50,10 @@ execute or run dac-ui.sh for patching the nodejs ui
 graviton2/dac-ui.sh
 ```
 
-or manually
-
-```sh
-cd ../dac/ui
-
-npm install @sentry/cli
-```
-
-ref
-https://github.com/getsentry/sentry-cli
-https://stackoverflow.com/questions/62971089/npm-install-use-built-package-for-arm-processor-sentry
-https://github.com/getsentry/sentry-cli/issues/592
+reference
+1. https://github.com/getsentry/sentry-cli
+1. https://stackoverflow.com/questions/62971089/npm-install-use-built-package-for-arm-processor-sentry
+1. https://github.com/getsentry/sentry-cli/issues/592
 
 
 
@@ -73,11 +65,10 @@ we can just change version to 6.4.6
 <rocksdb.version>6.4.6</rocksdb.version>
 ```
 
-ref
+reference
 
-https://github.com/facebook/rocksdb/issues/5559#issuecomment-559003725
-
-https://github.com/facebook/rocksdb/wiki/RocksJava-Basics
+1. https://github.com/facebook/rocksdb/issues/5559#issuecomment-559003725
+1. https://github.com/facebook/rocksdb/wiki/RocksJava-Basics
 
 
 # install open ssl
@@ -100,12 +91,22 @@ if you want to recompile and bundle native libs follow this
 
 https://support.huaweicloud.com/intl/en-us/prtg-tpdl-kunpengbds/kunpengwildflyopenssl_02_0004.html
 
+# install flatbufferc
+
+```sh
+graviton2/flatbuffer.sh
+```
+
+Reference
+https://stackoverflow.com/questions/55394537/how-to-install-flatc-and-flatbuffers-on-linux-ubuntu
+
+
 # redis 2.8.19
 
 this require the redis binaries. run this script to build redis
 
 ```sh
-./graviton2/redis.sh
+graviton2/redis.sh
 ```
 
 we can compile and build from source and link to java wrapper
@@ -115,70 +116,34 @@ https://github.com/ozimov/embedded-redis
 but i just change the code in dremio redis source by pointing to the location of the redis executable
 
 
-# need to fix gandiva
+# compile gandiva
 
-run llvm.sh
-
-run gandiva.sh
-
-
-
-# install flatbufferc
-
-```sh
-wget https://github.com/google/flatbuffers/archive/refs/tags/v1.9.0.tar.gz
-
-tar -xvf v1.9.0.tar.gz
-
-cd flatbuffers-1.9.0
-
-# https://gist.github.com/welly87/6497071f011c99c45c2b13dccaed5efb
-# cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
-## should change to Ninja for faster compilation
-
-sudo rm -rf build
-
-mkdir build && cd build
-
-cmake .. -D FLATBUFFERS_CXX_FLAGS="-Wno-error" -D FLATBUFFERS_BUILD_TESTS="false" -DCMAKE_BUILD_TYPE=Release
-
-#ninja
-make
-
-# sudo ninja install
-sudo make install
-
-Reference
-https://stackoverflow.com/questions/55394537/how-to-install-flatc-and-flatbuffers-on-linux-ubuntu
-```
-
-
-
-# build aws sdk
-
+## build aws sdk
 
 ```sh
 sh graviton2/aws-sdk.sh
 ```
 
-# install llvm
+## compile llvm
 
-```sh
-sh llvm.sh
+```shell
+llvm.sh
 ```
 
 reference
 
-https://llvm.org/docs/HowToBuildOnARM.html
+1. https://llvm.org/docs/HowToBuildOnARM.html
+1. https://llvm.org/docs/GettingStarted.html
 
-https://llvm.org/docs/GettingStarted.html
+## compile arrow-gandiva
 
-
+```shell
+gandiva.sh
+```
 
 # install arrow
 
 ```sh
-
 git clone https://github.com/Microsoft/vcpkg.git
 cd vcpkg
 ./bootstrap-vcpkg.sh
@@ -208,14 +173,15 @@ ninja install
 # make
 ```
 
-ref
-https://graspingtech.com/upgrade-cmake/
-https://arrow.apache.org/install/
+reference 
+1. https://graspingtech.com/upgrade-cmake/
+1. https://arrow.apache.org/install/
 
 
-# issues arrow with apple m1
-https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
-https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
+## issues arrow with apple m1
+1. https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
+1. https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
+
 
 # compile arrow java
 
@@ -224,7 +190,6 @@ https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
 ```xml
 <dep.netty.version>4.1.60.Final</dep.netty.version>
 ```
-
 
 https://github.com/apache/arrow/tree/master/java
 
