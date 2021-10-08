@@ -111,7 +111,7 @@
     <metrics.version>4.1.19</metrics.version>
     <mariadb.connector.version>2.3.0</mariadb.connector.version>
     <nessie.version>0.4.0</nessie.version>
-    <netty.version>4.1.48.Final</netty.version>
+    <netty.version>4.1.60.Final</netty.version>
     <netty3.version>3.10.6.Final-nohttp</netty3.version>
     <netty.boringssl.version>2.0.28.Final</netty.boringssl.version>
     <parquet.version>1.12.0-202012300655090309-fc8298d</parquet.version>

@@ -21,7 +21,7 @@ graviton2/dac-ui.sh
 or manually
 
 ```sh
-cd dremio-oss/dac/ui
+cd ../dac/ui
 
 npm install @sentry/cli
 ```
