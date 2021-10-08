@@ -339,3 +339,21 @@ wget https://repo1.maven.org/maven2/org/projectnessie/nessie-versioned-tests/0.4
 disable logging 
 
 https://mkyong.com/logging/logback-disable-logging-in-unit-test/
+
+remove tpc data for testing
+
+https://community.dremio.com/t/build-failure-with-ddremio-oss-only/6638/4
+
+disable tpc data from dremio maven repository
+
+https://community.dremio.com/t/dremio-oss-build-error/6025/5
+
+dremio-free: 
+http://maven.dremio.com/free/org/apache/parquet/parquet-hadoop/1.8.1-fast-201712141648170019-ab0622b/parquet-hadoop-1.8.1-fast-201712141648170019-ab0622b-tests.jar
+
+dremio-public: 
+http://maven.dremio.com/public/org/apache/parquet/parquet-hadoop/1.8.1-fast-201712141648170019-ab0622b/parquet-hadoop-1.8.1-fast-201712141648170019-ab0622b-tests.jar
+
+central: 
+https://repo.maven.apache.org/maven2/org/apache/parquet/parquet-hadoop/1.8.1-fast-201712141648170019-ab0622b/parquet-hadoop-1.8.1-fast-201712141648170019-ab0622b-tests.jar
+[I
