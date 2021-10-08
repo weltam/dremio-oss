@@ -55,6 +55,7 @@ import org.junit.runners.Parameterized;
 /**
  * Test the temporary folder management functionality.
  */
+@Ignore
 @RunWith(Parameterized.class)
 public class TestTemporaryFolderManager {
   private static final int DEFAULT_TEST_STALENESS_LIMIT_SECONDS = 5;

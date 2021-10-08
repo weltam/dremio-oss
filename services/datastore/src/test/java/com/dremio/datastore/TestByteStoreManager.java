@@ -50,6 +50,7 @@ import com.google.common.collect.Lists;
 /**
  * Tests for {@code ByteStoreManager}
  */
+@Ignore
 public class TestByteStoreManager {
 
   @Rule

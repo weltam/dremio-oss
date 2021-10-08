@@ -1,3 +1,12 @@
+# java 8
+
+```sh
+sdk install java 8.0.302-zulu
+
+sdk use java 8.0.302-zulu
+sdk default java 8.0.302-zulu
+```
+
 # install linux build tools
 
 ```sh
@@ -31,14 +40,7 @@ https://github.com/getsentry/sentry-cli
 https://stackoverflow.com/questions/62971089/npm-install-use-built-package-for-arm-processor-sentry
 https://github.com/getsentry/sentry-cli/issues/592
 
-# java 8
 
-```sh
-sdk install java 8.0.302-zulu
-
-sdk use java 8.0.302-zulu
-sdk default java 8.0.302-zulu
-```
 
 # fix rockdb
 
@@ -296,7 +298,6 @@ https://stackoverflow.com/questions/32368976/ways-to-make-maven-build-faster
 
 ```sh
 
-
 # start
 export DREMIO_VERSION=17.0.0-202107060524010627-31b5222b
 distribution/server/target/dremio-oss-${DREMIO_VERSION}/dremio-oss-${DREMIO_VERSION}/bin/dremio start
@@ -331,3 +332,10 @@ wget https://repo1.maven.org/maven2/org/projectnessie/nessie-versioned-memory/0.
 wget https://repo1.maven.org/maven2/org/projectnessie/nessie-versioned-spi/0.4.0/nessie-versioned-spi-0.4.0.jar
 wget https://repo1.maven.org/maven2/org/projectnessie/nessie-versioned-tests/0.4.0/nessie-versioned-tests-0.4.0.jar
 ```
+
+
+# Notes
+
+disable logging 
+
+https://mkyong.com/logging/logback-disable-logging-in-unit-test/
