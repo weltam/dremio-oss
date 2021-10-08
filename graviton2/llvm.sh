@@ -8,4 +8,4 @@ cmake .. -G Ninja -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;lldb;" \
                     -DLLVM_TARGETS_TO_BUILD="ARM;AArch64" ../llvm
 
 ninja 
-ninja install
+sudo ninja install

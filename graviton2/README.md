@@ -123,13 +123,13 @@ but i just change the code in dremio redis source by pointing to the location of
 ## build aws sdk
 
 ```sh
-sh graviton2/aws-sdk.sh
+graviton2/aws-sdk.sh
 ```
 
 ## compile llvm
 
 ```shell
-llvm.sh
+graviton2/llvm.sh
 ```
 
 reference
@@ -140,31 +140,31 @@ reference
 ## compile arrow-gandiva
 
 ```shell
-gandiva.sh
+graviton2/gandiva.sh
 ```
 
 # install arrow
 
 ```sh
-git clone https://github.com/Microsoft/vcpkg.git
-cd vcpkg
-./bootstrap-vcpkg.sh
-./vcpkg integrate install
+# git clone https://github.com/Microsoft/vcpkg.git
+# cd vcpkg
+# ./bootstrap-vcpkg.sh
+# ./vcpkg integrate install
 # ./vcpkg install arrow
 
-export VCPKG_FORCE_SYSTEM_BINARIES=1
-./vcpkg install arrow
+# export VCPKG_FORCE_SYSTEM_BINARIES=1
+# ./vcpkg install arrow
 
-git clone https://github.com/apache/arrow.git
+# git clone https://github.com/apache/arrow.git
 
-cd arrow
+# cd arrow
 
-export VCPKG_FORCE_SYSTEM_BINARIES=1
+# export VCPKG_FORCE_SYSTEM_BINARIES=1
 
-vcpkg install \
-  --x-manifest-root cpp \
-  --feature-flags=versions \
-  --clean-after-build
+# vcpkg install \
+#   --x-manifest-root cpp \
+#   --feature-flags=versions \
+#   --clean-after-build
 
 git clone https://github.com/apache/arrow.git
 cd arrow/cpp
@@ -175,19 +175,21 @@ ninja install
 # make
 ```
 
-reference 
+Reference 
+
 1. https://graspingtech.com/upgrade-cmake/
 1. https://arrow.apache.org/install/
 
 
 ## issues arrow with apple m1
+
 1. https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
 1. https://uwekorn.com/2021/01/04/first-two-weeks-with-the-m1.html
 
 
 # compile arrow java
 
-## change netty dependencies
+## change netty dependencies in apache arrow java/pom.xml
 
 ```xml
 <dep.netty.version>4.1.60.Final</dep.netty.version>
@@ -253,11 +255,9 @@ cd dremio
 
 # speed up maven build
 
-https://www.jrebel.com/blog/how-to-speed-up-your-maven-build
-
-https://mincong.io/2018/11/01/speed-up-the-maven-build/
-
-https://stackoverflow.com/questions/32368976/ways-to-make-maven-build-faster
+1. https://www.jrebel.com/blog/how-to-speed-up-your-maven-build
+1. https://mincong.io/2018/11/01/speed-up-the-maven-build/
+1. https://stackoverflow.com/questions/32368976/ways-to-make-maven-build-faster
 
 # run dremio
 

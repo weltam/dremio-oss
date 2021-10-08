@@ -6,4 +6,4 @@ cd arrow-apache-arrow-4.0.0/cpp
 rm -rf release && mkdir release && cd release
 cmake .. -GNinja -DARROW_GANDIVA=ON -DARROW_GANDIVA_JAVA=ON -DARROW_DEPENDENCY_SOURCE=BUNDLED
 ninja
-ninja install
+sudo ninja install
