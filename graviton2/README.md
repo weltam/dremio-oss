@@ -19,6 +19,9 @@ sudo apt install build-essential pkg-config flex bison \
                  lksctp-tools libsnappy-dev \
                 -y
 
+sudo apt install clang-13 lldb-13 lld-13 clangd-13 -y
+
+sudo snap install cmake --classic
 ```
 
 # nodejs
@@ -155,42 +158,16 @@ https://stackoverflow.com/questions/55394537/how-to-install-flatc-and-flatbuffer
 
 
 ```sh
-wget https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.9.117.tar.gz
-tar -xvf 1.9.117.tar.gz
-cd aws-sdk
-mkdir build && cd build
-
-# or you can change to Ninja
-
-cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/usr/local/bin
-make
-make install
+sh graviton2/aws-sdk.sh
 ```
 
 # install llvm
 
-## one cmd
 ```sh
 sh llvm.sh
 ```
 
-
-## manually
-```sh
-wget https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-12.0.1.tar.gz
-tar -xvf llvmorg-12.0.1.tar.gz
-cd llvm-project-llvmorg-12.0.1
-mkdir build && cd build
-
-cmake .. -G Ninja -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;lldb;" \
-                    -DCMAKE_BUILD_TYPE=Release \
-                    -DLLVM_TARGETS_TO_BUILD="ARM;AArch64" ../llvm
-
-ninja 
-ninja install
-```
-
-additional
+reference
 
 https://llvm.org/docs/HowToBuildOnARM.html
 
@@ -201,11 +178,6 @@ https://llvm.org/docs/GettingStarted.html
 # install arrow
 
 ```sh
-# upgrade cmake
-sudo snap install cmake --classic
-
-# sudo apt install clang-13 lldb-13 lld-13 clangd-13
-
 
 git clone https://github.com/Microsoft/vcpkg.git
 cd vcpkg
