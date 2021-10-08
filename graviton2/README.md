@@ -308,15 +308,22 @@ https://mkyong.com/logging/logback-disable-logging-in-unit-test/
 
 ## add dremio maven repository
 
-dremio-free: 
-http://maven.dremio.com/free/org/apache/parquet/parquet-hadoop/1.8.1-fast-201712141648170019-ab0622b/parquet-hadoop-1.8.1-fast-201712141648170019-ab0622b-tests.jar
+1. dremio-free
+1. dremio-public
 
-dremio-public: 
-http://maven.dremio.com/public/org/apache/parquet/parquet-hadoop/1.8.1-fast-201712141648170019-ab0622b/parquet-hadoop-1.8.1-fast-201712141648170019-ab0622b-tests.jar
+```xml
+  <repositories>
+    <repository>
+      <id>dremio-public</id>
+      <url>https://maven.dremio.com/public/</url>
+    </repository>
+    <repository>
+      <id>dremio-free</id>
+      <url>https://maven.dremio.com/free/</url>
+    </repository>
+  </repositories>
+```
 
-central: 
-https://repo.maven.apache.org/maven2/org/apache/parquet/parquet-hadoop/1.8.1-fast-201712141648170019-ab0622b/parquet-hadoop-1.8.1-fast-201712141648170019-ab0622b-tests.jar
-[I
 
 ### remove tpc data for testing (optional)
 
