@@ -35,11 +35,15 @@ sudo apt install npm -y
 ```sh
 sudo apt install python2-minimal -y
 ```
+# install vcpkg
+
+CMake projects should use: "-DCMAKE_TOOLCHAIN_FILE=/home/ubuntu/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
 # install protobuf
 
 ```sh
-sudo apt install protobuf-compiler
+# sudo apt install protobuf-compiler
+# sudo apt remove protobuf-compiler
 ```
 
 # fixing sentry cli
