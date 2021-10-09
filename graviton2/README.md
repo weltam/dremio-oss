@@ -4,7 +4,10 @@
 sdk install java 8.0.302-zulu
 
 sdk use java 8.0.302-zulu
+
 sdk default java 8.0.302-zulu
+
+sdk default java 11.0.12-zulu
 ```
 
 # install linux build tools

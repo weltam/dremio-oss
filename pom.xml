@@ -3274,10 +3274,15 @@ limitations under the License.
       </dependency>
       <dependency>
         <groupId>org.wildfly.openssl</groupId>
+        <artifactId>wildfly-openssl-java</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <!-- <dependency>
+        <groupId>org.wildfly.openssl</groupId>
         <artifactId>wildfly-openssl</artifactId>
         <version>1.0.9.Final</version>
         <scope>runtime</scope>
-      </dependency>
+      </dependency> -->
     </dependencies>
   </dependencyManagement>
 
