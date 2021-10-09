@@ -1103,6 +1103,7 @@
             <phase>test</phase>
             <goals><goal>test</goal></goals>
             <configuration>
+              <skipTests>true</skipTests>
               <excludes>
                 <exclude>**/TestLargeFileCompilation.java</exclude>
               </excludes>
