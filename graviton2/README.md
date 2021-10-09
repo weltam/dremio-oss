@@ -218,7 +218,7 @@ cd dremio
 # clean & with internet
 ./mvnw -T 1C clean install -DskipTests -Dmaven.test.skip=true -Ddremio.oss-only=true -e
 
-./mvnw -T 1C install -DskipTests -Dmaven.test.skip -Ddremio.oss-only=true
+./mvnw -T 1C clean install -DskipTests -Dlicense.skip=true -Ddremio.oss-only=true -e
 
 # no internet
 ./mvnw -T 1C clean install -DskipTests -Dmaven.test.skip --offline
@@ -230,6 +230,8 @@ cd dremio
 ./mvnw -T 1C clean compile -pl tools -am -DskipTests -Dmaven.test.skip --offline
 ./mvnw -T 1C compile -pl protocol -am -DskipTests -Dmaven.test.skip --offline
 ```
+
+
 
 # speed up maven build
 
@@ -246,6 +248,7 @@ export DREMIO_VERSION=17.0.0-202107060524010627-31b5222b
 distribution/server/target/dremio-oss-${DREMIO_VERSION}/dremio-oss-${DREMIO_VERSION}/bin/dremio start
 
 # stop
+export DREMIO_VERSION=17.0.0-202107060524010627-31b5222b
 distribution/server/target/dremio-oss-${DREMIO_VERSION}/dremio-oss-${DREMIO_VERSION}/bin/dremio stop
 ```
 
