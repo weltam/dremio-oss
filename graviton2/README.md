@@ -147,38 +147,6 @@ reference
 graviton2/gandiva.sh
 ```
 
-# install arrow
-
-```sh
-# git clone https://github.com/Microsoft/vcpkg.git
-# cd vcpkg
-# ./bootstrap-vcpkg.sh
-# ./vcpkg integrate install
-# ./vcpkg install arrow
-
-# export VCPKG_FORCE_SYSTEM_BINARIES=1
-# ./vcpkg install arrow
-
-# git clone https://github.com/apache/arrow.git
-
-# cd arrow
-
-# export VCPKG_FORCE_SYSTEM_BINARIES=1
-
-# vcpkg install \
-#   --x-manifest-root cpp \
-#   --feature-flags=versions \
-#   --clean-after-build
-
-git clone https://github.com/apache/arrow.git
-cd arrow/cpp
-rm -rf release && mkdir release && cd release
-cmake .. -GNinja -DARROW_GANDIVA=ON -DARROW_GANDIVA_JAVA=ON -DARROW_DEPENDENCY_SOURCE=BUNDLED
-ninja
-ninja install 
-# make
-```
-
 Reference 
 
 1. https://graspingtech.com/upgrade-cmake/

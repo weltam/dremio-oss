@@ -1,21 +1,21 @@
-wget https://github.com/google/flatbuffers/archive/refs/tags/v1.9.0.tar.gz
+# wget https://github.com/google/flatbuffers/archive/refs/tags/v1.9.0.tar.gz
 
-tar -xvf v1.9.0.tar.gz
+# tar -xvf v1.9.0.tar.gz
 
-cd flatbuffers-1.9.0
+# cd flatbuffers-1.9.0
 
 # https://gist.github.com/welly87/6497071f011c99c45c2b13dccaed5efb
 # cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
 ## should change to Ninja for faster compilation
 
-sudo rm -rf build
+git clone https://github.com/google/flatbuffers.git
 
-mkdir build && cd build
+cd flatbuffers
 
-cmake .. -D FLATBUFFERS_CXX_FLAGS="-Wno-error" -D FLATBUFFERS_BUILD_TESTS="false" -DCMAKE_BUILD_TYPE=Release
+git checkout v1.12.0
 
-#ninja
-make
+rm -rf release && mkdir release && cd release
 
-# sudo ninja install
-sudo make install
+cmake .. -DFLATBUFFERS_CXX_FLAGS="-Wno-error" -DFLATBUFFERS_BUILD_TESTS="false" -DCMAKE_BUILD_TYPE=Release
+
+make && sudo make install
