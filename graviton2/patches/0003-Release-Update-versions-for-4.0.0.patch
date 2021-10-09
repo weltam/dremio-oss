@@ -1,0 +1,788 @@
+From f959141ece4d660bce5f7fa545befc0116a7db79 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Kriszti=C3=A1n=20Sz=C5=B1cs?= <szucs.krisztian@gmail.com>
+Date: Wed, 21 Apr 2021 18:11:38 +0200
+Subject: [PATCH 3/4] [Release] Update versions for 4.0.0
+
+---
+ c_glib/meson.build                                   | 2 +-
+ ci/scripts/PKGBUILD                                  | 2 +-
+ cpp/CMakeLists.txt                                   | 2 +-
+ cpp/vcpkg.json                                       | 2 +-
+ csharp/Directory.Build.props                         | 2 +-
+ dev/tasks/homebrew-formulae/apache-arrow.rb          | 2 +-
+ dev/tasks/homebrew-formulae/autobrew/apache-arrow.rb | 2 +-
+ java/adapter/avro/pom.xml                            | 2 +-
+ java/adapter/jdbc/pom.xml                            | 2 +-
+ java/adapter/orc/pom.xml                             | 2 +-
+ java/algorithm/pom.xml                               | 2 +-
+ java/compression/pom.xml                             | 2 +-
+ java/dataset/pom.xml                                 | 2 +-
+ java/flight/flight-core/pom.xml                      | 2 +-
+ java/flight/flight-grpc/pom.xml                      | 2 +-
+ java/format/pom.xml                                  | 2 +-
+ java/gandiva/pom.xml                                 | 2 +-
+ java/memory/memory-core/pom.xml                      | 2 +-
+ java/memory/memory-netty/pom.xml                     | 2 +-
+ java/memory/memory-unsafe/pom.xml                    | 2 +-
+ java/memory/pom.xml                                  | 2 +-
+ java/performance/pom.xml                             | 4 ++--
+ java/plasma/pom.xml                                  | 2 +-
+ java/pom.xml                                         | 2 +-
+ java/tools/pom.xml                                   | 2 +-
+ java/vector/pom.xml                                  | 2 +-
+ js/package.json                                      | 2 +-
+ matlab/CMakeLists.txt                                | 2 +-
+ python/setup.py                                      | 2 +-
+ r/DESCRIPTION                                        | 2 +-
+ r/NEWS.md                                            | 2 +-
+ ruby/red-arrow-cuda/lib/arrow-cuda/version.rb        | 2 +-
+ ruby/red-arrow-dataset/lib/arrow-dataset/version.rb  | 2 +-
+ ruby/red-arrow/lib/arrow/version.rb                  | 2 +-
+ ruby/red-gandiva/lib/gandiva/version.rb              | 2 +-
+ ruby/red-parquet/lib/parquet/version.rb              | 2 +-
+ ruby/red-plasma/lib/plasma/version.rb                | 2 +-
+ rust/arrow-flight/Cargo.toml                         | 4 ++--
+ rust/arrow-pyarrow-integration-testing/Cargo.toml    | 4 ++--
+ rust/arrow/Cargo.toml                                | 2 +-
+ rust/benchmarks/Cargo.toml                           | 2 +-
+ rust/datafusion-examples/Cargo.toml                  | 2 +-
+ rust/datafusion/Cargo.toml                           | 6 +++---
+ rust/datafusion/README.md                            | 2 +-
+ rust/integration-testing/Cargo.toml                  | 2 +-
+ rust/parquet/Cargo.toml                              | 6 +++---
+ rust/parquet/README.md                               | 4 ++--
+ rust/parquet_derive/Cargo.toml                       | 4 ++--
+ rust/parquet_derive/README.md                        | 4 ++--
+ rust/parquet_derive_test/Cargo.toml                  | 6 +++---
+ 50 files changed, 62 insertions(+), 62 deletions(-)
+
+diff --git a/c_glib/meson.build b/c_glib/meson.build
+index 4ac407e97..79abfa6e1 100644
+--- a/c_glib/meson.build
++++ b/c_glib/meson.build
+@@ -23,7 +23,7 @@ project('arrow-glib', 'c', 'cpp',
+           'cpp_std=c++11',
+         ])
+ 
+-version = '4.0.0-SNAPSHOT'
++version = '4.0.0'
+ if version.endswith('-SNAPSHOT')
+   version_numbers = version.split('-')[0].split('.')
+   version_tag = version.split('-')[1]
+diff --git a/ci/scripts/PKGBUILD b/ci/scripts/PKGBUILD
+index c5b55eef4..34cd4347b 100644
+--- a/ci/scripts/PKGBUILD
++++ b/ci/scripts/PKGBUILD
+@@ -18,7 +18,7 @@
+ _realname=arrow
+ pkgbase=mingw-w64-${_realname}
+ pkgname="${MINGW_PACKAGE_PREFIX}-${_realname}"
+-pkgver=3.0.0.9000
++pkgver=4.0.0
+ pkgrel=8000
+ pkgdesc="Apache Arrow is a cross-language development platform for in-memory data (mingw-w64)"
+ arch=("any")
+diff --git a/cpp/CMakeLists.txt b/cpp/CMakeLists.txt
+index 4e88c32dc..b7a1dae2a 100644
+--- a/cpp/CMakeLists.txt
++++ b/cpp/CMakeLists.txt
+@@ -47,7 +47,7 @@ if(POLICY CMP0074)
+   cmake_policy(SET CMP0074 NEW)
+ endif()
+ 
+-set(ARROW_VERSION "4.0.0-SNAPSHOT")
++set(ARROW_VERSION "4.0.0")
+ 
+ string(REGEX MATCH "^[0-9]+\\.[0-9]+\\.[0-9]+" ARROW_BASE_VERSION "${ARROW_VERSION}")
+ 
+diff --git a/cpp/vcpkg.json b/cpp/vcpkg.json
+index 282677aea..eea9cd95b 100644
+--- a/cpp/vcpkg.json
++++ b/cpp/vcpkg.json
+@@ -1,6 +1,6 @@
+ {
+   "name": "arrow",
+-  "version-string": "4.0.0-SNAPSHOT",
++  "version-string": "4.0.0",
+   "dependencies": [
+     "abseil",
+     {
+diff --git a/csharp/Directory.Build.props b/csharp/Directory.Build.props
+index 3ee2af715..89de846be 100644
+--- a/csharp/Directory.Build.props
++++ b/csharp/Directory.Build.props
+@@ -29,7 +29,7 @@
+     <Product>Apache Arrow library</Product>
+     <Copyright>Copyright 2016-2019 The Apache Software Foundation</Copyright>
+     <Company>The Apache Software Foundation</Company>
+-    <Version>4.0.0-SNAPSHOT</Version>
++    <Version>4.0.0</Version>
+   </PropertyGroup>
+ 
+   <PropertyGroup>
+diff --git a/dev/tasks/homebrew-formulae/apache-arrow.rb b/dev/tasks/homebrew-formulae/apache-arrow.rb
+index 953f1eea1..e5cfe9795 100644
+--- a/dev/tasks/homebrew-formulae/apache-arrow.rb
++++ b/dev/tasks/homebrew-formulae/apache-arrow.rb
+@@ -1,7 +1,7 @@
+ class ApacheArrow < Formula
+   desc "Columnar in-memory analytics layer designed to accelerate big data"
+   homepage "https://arrow.apache.org/"
+-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-4.0.0-SNAPSHOT/apache-arrow-4.0.0-SNAPSHOT.tar.gz"
++  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-4.0.0/apache-arrow-4.0.0.tar.gz"
+   sha256 "9948ddb6d4798b51552d0dca3252dd6e3a7d0f9702714fc6f5a1b59397ce1d28"
+   license "Apache-2.0"
+   head "https://github.com/apache/arrow.git"
+diff --git a/dev/tasks/homebrew-formulae/autobrew/apache-arrow.rb b/dev/tasks/homebrew-formulae/autobrew/apache-arrow.rb
+index 351d77646..7d6209040 100644
+--- a/dev/tasks/homebrew-formulae/autobrew/apache-arrow.rb
++++ b/dev/tasks/homebrew-formulae/autobrew/apache-arrow.rb
+@@ -19,7 +19,7 @@
+ class ApacheArrow < Formula
+   desc "Columnar in-memory analytics layer designed to accelerate big data"
+   homepage "https://arrow.apache.org/"
+-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-3.0.0.9000/apache-arrow-3.0.0.9000.tar.gz"
++  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-4.0.0/apache-arrow-4.0.0.tar.gz"
+   sha256 "9948ddb6d4798b51552d0dca3252dd6e3a7d0f9702714fc6f5a1b59397ce1d28"
+   head "https://github.com/apache/arrow.git"
+ 
+diff --git a/java/adapter/avro/pom.xml b/java/adapter/avro/pom.xml
+index d2b242f93..51315f258 100644
+--- a/java/adapter/avro/pom.xml
++++ b/java/adapter/avro/pom.xml
+@@ -16,7 +16,7 @@
+   <parent>
+     <groupId>org.apache.arrow</groupId>
+     <artifactId>arrow-java-root</artifactId>
+-    <version>4.0.0-SNAPSHOT</version>
++    <version>4.0.0</version>
+     <relativePath>../../pom.xml</relativePath>
+   </parent>
+ 
+diff --git a/java/adapter/jdbc/pom.xml b/java/adapter/jdbc/pom.xml
+index b75135fd8..ec9c92e14 100644
+--- a/java/adapter/jdbc/pom.xml
++++ b/java/adapter/jdbc/pom.xml
+@@ -16,7 +16,7 @@
+     <parent>
+         <groupId>org.apache.arrow</groupId>
+         <artifactId>arrow-java-root</artifactId>
+-        <version>4.0.0-SNAPSHOT</version>
++        <version>4.0.0</version>
+         <relativePath>../../pom.xml</relativePath>
+     </parent>
+ 
+diff --git a/java/adapter/orc/pom.xml b/java/adapter/orc/pom.xml
+index 3ec5f36e7..f797c2a60 100644
+--- a/java/adapter/orc/pom.xml
++++ b/java/adapter/orc/pom.xml
+@@ -87,7 +87,7 @@
+     <parent>
+         <groupId>org.apache.arrow</groupId>
+         <artifactId>arrow-java-root</artifactId>
+-        <version>4.0.0-SNAPSHOT</version>
++        <version>4.0.0</version>
+         <relativePath>../../pom.xml</relativePath>
+     </parent>
+ 
+diff --git a/java/algorithm/pom.xml b/java/algorithm/pom.xml
+index 3ad44d449..3d9920069 100644
+--- a/java/algorithm/pom.xml
++++ b/java/algorithm/pom.xml
+@@ -14,7 +14,7 @@
+   <parent>
+     <groupId>org.apache.arrow</groupId>
+     <artifactId>arrow-java-root</artifactId>
+-    <version>4.0.0-SNAPSHOT</version>
++    <version>4.0.0</version>
+   </parent>
+   <artifactId>arrow-algorithm</artifactId>
+   <name>Arrow Algorithms</name>
+diff --git a/java/compression/pom.xml b/java/compression/pom.xml
+index dc0a95865..7f49114c4 100644
+--- a/java/compression/pom.xml
++++ b/java/compression/pom.xml
+@@ -14,7 +14,7 @@
+   <parent>
+     <groupId>org.apache.arrow</groupId>
+     <artifactId>arrow-java-root</artifactId>
+-    <version>4.0.0-SNAPSHOT</version>
++    <version>4.0.0</version>
+   </parent>
+   <artifactId>arrow-compression</artifactId>
+   <name>Arrow Compression</name>
+diff --git a/java/dataset/pom.xml b/java/dataset/pom.xml
+index c4246a890..2625b58e6 100644
+--- a/java/dataset/pom.xml
++++ b/java/dataset/pom.xml
+@@ -15,7 +15,7 @@
+     <parent>
+         <artifactId>arrow-java-root</artifactId>
+         <groupId>org.apache.arrow</groupId>
+-        <version>4.0.0-SNAPSHOT</version>
++        <version>4.0.0</version>
+     </parent>
+     <modelVersion>4.0.0</modelVersion>
+ 
+diff --git a/java/flight/flight-core/pom.xml b/java/flight/flight-core/pom.xml
+index 1fc87411f..237433a3c 100644
+--- a/java/flight/flight-core/pom.xml
++++ b/java/flight/flight-core/pom.xml
+@@ -14,7 +14,7 @@
+   <parent>
+     <groupId>org.apache.arrow</groupId>
+     <artifactId>arrow-java-root</artifactId>
+-    <version>4.0.0-SNAPSHOT</version>
++    <version>4.0.0</version>
+     <relativePath>../../pom.xml</relativePath>
+   </parent>
+ 
+diff --git a/java/flight/flight-grpc/pom.xml b/java/flight/flight-grpc/pom.xml
+index 8399642ad..2a8b065a2 100644
+--- a/java/flight/flight-grpc/pom.xml
++++ b/java/flight/flight-grpc/pom.xml
+@@ -13,7 +13,7 @@
+   <parent>
+     <artifactId>arrow-java-root</artifactId>
+     <groupId>org.apache.arrow</groupId>
+-    <version>4.0.0-SNAPSHOT</version>
++    <version>4.0.0</version>
+     <relativePath>../../pom.xml</relativePath>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+diff --git a/java/format/pom.xml b/java/format/pom.xml
+index 4d6599e0b..e363a2a4b 100644
+--- a/java/format/pom.xml
++++ b/java/format/pom.xml
+@@ -15,7 +15,7 @@
+ <parent>
+   <artifactId>arrow-java-root</artifactId>
+   <groupId>org.apache.arrow</groupId>
+-  <version>4.0.0-SNAPSHOT</version>
++  <version>4.0.0</version>
+ </parent>
+ 
+ <artifactId>arrow-format</artifactId>
+diff --git a/java/gandiva/pom.xml b/java/gandiva/pom.xml
+index 853438887..66e1f10f6 100644
+--- a/java/gandiva/pom.xml
++++ b/java/gandiva/pom.xml
+@@ -14,7 +14,7 @@
+     <parent>
+       <groupId>org.apache.arrow</groupId>
+       <artifactId>arrow-java-root</artifactId>
+-      <version>4.0.0-SNAPSHOT</version>
++      <version>4.0.0</version>
+     </parent>
+ 
+     <groupId>org.apache.arrow.gandiva</groupId>
+diff --git a/java/memory/memory-core/pom.xml b/java/memory/memory-core/pom.xml
+index b9f4514ae..be7faaf5f 100644
+--- a/java/memory/memory-core/pom.xml
++++ b/java/memory/memory-core/pom.xml
+@@ -13,7 +13,7 @@
+   <parent>
+     <artifactId>arrow-memory</artifactId>
+     <groupId>org.apache.arrow</groupId>
+-    <version>4.0.0-SNAPSHOT</version>
++    <version>4.0.0</version>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+ 
+diff --git a/java/memory/memory-netty/pom.xml b/java/memory/memory-netty/pom.xml
+index d427f5723..1c25e883d 100644
+--- a/java/memory/memory-netty/pom.xml
++++ b/java/memory/memory-netty/pom.xml
+@@ -13,7 +13,7 @@
+   <parent>
+     <artifactId>arrow-memory</artifactId>
+     <groupId>org.apache.arrow</groupId>
+-    <version>4.0.0-SNAPSHOT</version>
++    <version>4.0.0</version>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+ 
+diff --git a/java/memory/memory-unsafe/pom.xml b/java/memory/memory-unsafe/pom.xml
+index c1b9af365..5c5346a4b 100644
+--- a/java/memory/memory-unsafe/pom.xml
++++ b/java/memory/memory-unsafe/pom.xml
+@@ -13,7 +13,7 @@
+   <parent>
+     <artifactId>arrow-memory</artifactId>
+     <groupId>org.apache.arrow</groupId>
+-    <version>4.0.0-SNAPSHOT</version>
++    <version>4.0.0</version>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+ 
+diff --git a/java/memory/pom.xml b/java/memory/pom.xml
+index 814e3da44..17df5ee13 100644
+--- a/java/memory/pom.xml
++++ b/java/memory/pom.xml
+@@ -14,7 +14,7 @@
+   <parent>
+     <groupId>org.apache.arrow</groupId>
+     <artifactId>arrow-java-root</artifactId>
+-    <version>4.0.0-SNAPSHOT</version>
++    <version>4.0.0</version>
+   </parent>
+   <artifactId>arrow-memory</artifactId>
+   <name>Arrow Memory</name>
+diff --git a/java/performance/pom.xml b/java/performance/pom.xml
+index dffe7f2cb..8ff2bc15d 100644
+--- a/java/performance/pom.xml
++++ b/java/performance/pom.xml
+@@ -14,7 +14,7 @@
+     <parent>
+         <artifactId>arrow-java-root</artifactId>
+         <groupId>org.apache.arrow</groupId>
+-        <version>4.0.0-SNAPSHOT</version>
++        <version>4.0.0</version>
+     </parent>
+     <artifactId>arrow-performance</artifactId>
+     <packaging>jar</packaging>
+@@ -86,7 +86,7 @@
+         <dependency>
+             <groupId>org.apache.arrow</groupId>
+             <artifactId>arrow-algorithm</artifactId>
+-            <version>4.0.0-SNAPSHOT</version>
++            <version>4.0.0</version>
+             <scope>test</scope>
+         </dependency>
+     </dependencies>
+diff --git a/java/plasma/pom.xml b/java/plasma/pom.xml
+index 7e298d704..e043e391f 100644
+--- a/java/plasma/pom.xml
++++ b/java/plasma/pom.xml
+@@ -14,7 +14,7 @@
+     <parent>
+         <groupId>org.apache.arrow</groupId>
+         <artifactId>arrow-java-root</artifactId>
+-        <version>4.0.0-SNAPSHOT</version>
++        <version>4.0.0</version>
+     </parent>
+     <artifactId>arrow-plasma</artifactId>
+     <name>Arrow Plasma Client</name>
+diff --git a/java/pom.xml b/java/pom.xml
+index 89be67f77..1d93eb657 100644
+--- a/java/pom.xml
++++ b/java/pom.xml
+@@ -20,7 +20,7 @@
+ 
+   <groupId>org.apache.arrow</groupId>
+   <artifactId>arrow-java-root</artifactId>
+-  <version>4.0.0-SNAPSHOT</version>
++  <version>4.0.0</version>
+   <packaging>pom</packaging>
+ 
+   <name>Apache Arrow Java Root POM</name>
+diff --git a/java/tools/pom.xml b/java/tools/pom.xml
+index 375d24351..3fbac5ac9 100644
+--- a/java/tools/pom.xml
++++ b/java/tools/pom.xml
+@@ -14,7 +14,7 @@
+     <parent>
+         <groupId>org.apache.arrow</groupId>
+         <artifactId>arrow-java-root</artifactId>
+-        <version>4.0.0-SNAPSHOT</version>
++        <version>4.0.0</version>
+     </parent>
+     <artifactId>arrow-tools</artifactId>
+     <name>Arrow Tools</name>
+diff --git a/java/vector/pom.xml b/java/vector/pom.xml
+index ed22e9b94..fa3b24f71 100644
+--- a/java/vector/pom.xml
++++ b/java/vector/pom.xml
+@@ -14,7 +14,7 @@
+   <parent>
+     <groupId>org.apache.arrow</groupId>
+     <artifactId>arrow-java-root</artifactId>
+-    <version>4.0.0-SNAPSHOT</version>
++    <version>4.0.0</version>
+   </parent>
+   <artifactId>arrow-vector</artifactId>
+   <name>Arrow Vectors</name>
+diff --git a/js/package.json b/js/package.json
+index 880a5b9c1..825b1871f 100644
+--- a/js/package.json
++++ b/js/package.json
+@@ -107,5 +107,5 @@
+   "engines": {
+     "node": ">=11.12"
+   },
+-  "version": "4.0.0-SNAPSHOT"
++  "version": "4.0.0"
+ }
+diff --git a/matlab/CMakeLists.txt b/matlab/CMakeLists.txt
+index fb80670b1..59a7104cd 100644
+--- a/matlab/CMakeLists.txt
++++ b/matlab/CMakeLists.txt
+@@ -18,7 +18,7 @@
+ cmake_minimum_required(VERSION 3.2)
+ set(CMAKE_CXX_STANDARD 11)
+ 
+-set(MLARROW_VERSION "4.0.0-SNAPSHOT")
++set(MLARROW_VERSION "4.0.0")
+ string(REGEX MATCH "^[0-9]+\\.[0-9]+\\.[0-9]+" MLARROW_BASE_VERSION "${MLARROW_VERSION}")
+ 
+ project(mlarrow VERSION "${MLARROW_BASE_VERSION}")
+diff --git a/python/setup.py b/python/setup.py
+index a2abb0501..3440a6763 100755
+--- a/python/setup.py
++++ b/python/setup.py
+@@ -519,7 +519,7 @@ def _move_shared_libs_unix(build_prefix, build_lib, lib_name):
+ 
+ # If the event of not running from a git clone (e.g. from a git archive
+ # or a Python sdist), see if we can set the version number ourselves
+-default_version = '4.0.0-SNAPSHOT'
++default_version = '4.0.0'
+ if (not os.path.exists('../.git') and
+         not os.environ.get('SETUPTOOLS_SCM_PRETEND_VERSION')):
+     if os.path.exists('PKG-INFO'):
+diff --git a/r/DESCRIPTION b/r/DESCRIPTION
+index 7a63b9e7e..967492351 100644
+--- a/r/DESCRIPTION
++++ b/r/DESCRIPTION
+@@ -1,6 +1,6 @@
+ Package: arrow
+ Title: Integration to 'Apache' 'Arrow'
+-Version: 3.0.0.9000
++Version: 4.0.0
+ Authors@R: c(
+     person("Neal", "Richardson", email = "neal@ursalabs.org", role = c("aut", "cre")),
+     person("Ian", "Cook", email = "ianmcook@gmail.com", role = c("aut")),
+diff --git a/r/NEWS.md b/r/NEWS.md
+index c064ac749..bb8a22c53 100644
+--- a/r/NEWS.md
++++ b/r/NEWS.md
+@@ -17,7 +17,7 @@
+   under the License.
+ -->
+ 
+-# arrow 3.0.0.9000
++# arrow 4.0.0
+ 
+ ## dplyr methods
+ 
+diff --git a/ruby/red-arrow-cuda/lib/arrow-cuda/version.rb b/ruby/red-arrow-cuda/lib/arrow-cuda/version.rb
+index d4031e517..e70472be7 100644
+--- a/ruby/red-arrow-cuda/lib/arrow-cuda/version.rb
++++ b/ruby/red-arrow-cuda/lib/arrow-cuda/version.rb
+@@ -16,7 +16,7 @@
+ # under the License.
+ 
+ module ArrowCUDA
+-  VERSION = "4.0.0-SNAPSHOT"
++  VERSION = "4.0.0"
+ 
+   module Version
+     numbers, TAG = VERSION.split("-")
+diff --git a/ruby/red-arrow-dataset/lib/arrow-dataset/version.rb b/ruby/red-arrow-dataset/lib/arrow-dataset/version.rb
+index 0f1e3541a..407aaecf3 100644
+--- a/ruby/red-arrow-dataset/lib/arrow-dataset/version.rb
++++ b/ruby/red-arrow-dataset/lib/arrow-dataset/version.rb
+@@ -16,7 +16,7 @@
+ # under the License.
+ 
+ module ArrowDataset
+-  VERSION = "4.0.0-SNAPSHOT"
++  VERSION = "4.0.0"
+ 
+   module Version
+     numbers, TAG = VERSION.split("-")
+diff --git a/ruby/red-arrow/lib/arrow/version.rb b/ruby/red-arrow/lib/arrow/version.rb
+index 052d586ed..559c16f32 100644
+--- a/ruby/red-arrow/lib/arrow/version.rb
++++ b/ruby/red-arrow/lib/arrow/version.rb
+@@ -16,7 +16,7 @@
+ # under the License.
+ 
+ module Arrow
+-  VERSION = "4.0.0-SNAPSHOT"
++  VERSION = "4.0.0"
+ 
+   module Version
+     numbers, TAG = VERSION.split("-")
+diff --git a/ruby/red-gandiva/lib/gandiva/version.rb b/ruby/red-gandiva/lib/gandiva/version.rb
+index 535df8b8c..72136138c 100644
+--- a/ruby/red-gandiva/lib/gandiva/version.rb
++++ b/ruby/red-gandiva/lib/gandiva/version.rb
+@@ -16,7 +16,7 @@
+ # under the License.
+ 
+ module Gandiva
+-  VERSION = "4.0.0-SNAPSHOT"
++  VERSION = "4.0.0"
+ 
+   module Version
+     numbers, TAG = VERSION.split("-")
+diff --git a/ruby/red-parquet/lib/parquet/version.rb b/ruby/red-parquet/lib/parquet/version.rb
+index b309873b7..a7091b8cb 100644
+--- a/ruby/red-parquet/lib/parquet/version.rb
++++ b/ruby/red-parquet/lib/parquet/version.rb
+@@ -16,7 +16,7 @@
+ # under the License.
+ 
+ module Parquet
+-  VERSION = "4.0.0-SNAPSHOT"
++  VERSION = "4.0.0"
+ 
+   module Version
+     numbers, TAG = VERSION.split("-")
+diff --git a/ruby/red-plasma/lib/plasma/version.rb b/ruby/red-plasma/lib/plasma/version.rb
+index 991dd1939..ff0f17958 100644
+--- a/ruby/red-plasma/lib/plasma/version.rb
++++ b/ruby/red-plasma/lib/plasma/version.rb
+@@ -16,7 +16,7 @@
+ # under the License.
+ 
+ module Plasma
+-  VERSION = "4.0.0-SNAPSHOT"
++  VERSION = "4.0.0"
+ 
+   module Version
+     numbers, TAG = VERSION.split("-")
+diff --git a/rust/arrow-flight/Cargo.toml b/rust/arrow-flight/Cargo.toml
+index c607b562c..33243311f 100644
+--- a/rust/arrow-flight/Cargo.toml
++++ b/rust/arrow-flight/Cargo.toml
+@@ -18,7 +18,7 @@
+ [package]
+ name = "arrow-flight"
+ description = "Apache Arrow Flight"
+-version = "4.0.0-SNAPSHOT"
++version = "4.0.0"
+ edition = "2018"
+ authors = ["Apache Arrow <dev@arrow.apache.org>"]
+ homepage = "https://github.com/apache/arrow"
+@@ -26,7 +26,7 @@ repository = "https://github.com/apache/arrow"
+ license = "Apache-2.0"
+ 
+ [dependencies]
+-arrow = { path = "../arrow", version = "4.0.0-SNAPSHOT" }
++arrow = { path = "../arrow", version = "4.0.0" }
+ tonic = "0.4"
+ bytes = "1"
+ prost = "0.7"
+diff --git a/rust/arrow-pyarrow-integration-testing/Cargo.toml b/rust/arrow-pyarrow-integration-testing/Cargo.toml
+index ef356b090..82749753c 100644
+--- a/rust/arrow-pyarrow-integration-testing/Cargo.toml
++++ b/rust/arrow-pyarrow-integration-testing/Cargo.toml
+@@ -18,7 +18,7 @@
+ [package]
+ name = "arrow-pyarrow-integration-testing"
+ description = ""
+-version = "4.0.0-SNAPSHOT"
++version = "4.0.0"
+ homepage = "https://github.com/apache/arrow"
+ repository = "https://github.com/apache/arrow"
+ authors = ["Apache Arrow <dev@arrow.apache.org>"]
+@@ -31,7 +31,7 @@ name = "arrow_pyarrow_integration_testing"
+ crate-type = ["cdylib"]
+ 
+ [dependencies]
+-arrow = { path = "../arrow", version = "4.0.0-SNAPSHOT" }
++arrow = { path = "../arrow", version = "4.0.0" }
+ pyo3 = { version = "0.12.1", features = ["extension-module"] }
+ 
+ [package.metadata.maturin]
+diff --git a/rust/arrow/Cargo.toml b/rust/arrow/Cargo.toml
+index 5ab1f8cc0..4070b043b 100644
+--- a/rust/arrow/Cargo.toml
++++ b/rust/arrow/Cargo.toml
+@@ -17,7 +17,7 @@
+ 
+ [package]
+ name = "arrow"
+-version = "4.0.0-SNAPSHOT"
++version = "4.0.0"
+ description = "Rust implementation of Apache Arrow"
+ homepage = "https://github.com/apache/arrow"
+ repository = "https://github.com/apache/arrow"
+diff --git a/rust/benchmarks/Cargo.toml b/rust/benchmarks/Cargo.toml
+index 5cdf0f94a..e23e32993 100644
+--- a/rust/benchmarks/Cargo.toml
++++ b/rust/benchmarks/Cargo.toml
+@@ -18,7 +18,7 @@
+ [package]
+ name = "arrow-benchmarks"
+ description = "Apache Arrow Benchmarks"
+-version = "4.0.0-SNAPSHOT"
++version = "4.0.0"
+ edition = "2018"
+ authors = ["Apache Arrow <dev@arrow.apache.org>"]
+ homepage = "https://github.com/apache/arrow"
+diff --git a/rust/datafusion-examples/Cargo.toml b/rust/datafusion-examples/Cargo.toml
+index c86e7ccbe..fbdb05960 100644
+--- a/rust/datafusion-examples/Cargo.toml
++++ b/rust/datafusion-examples/Cargo.toml
+@@ -18,7 +18,7 @@
+ [package]
+ name = "datafusion-examples"
+ description = "DataFusion usage examples"
+-version = "4.0.0-SNAPSHOT"
++version = "4.0.0"
+ homepage = "https://github.com/apache/arrow"
+ repository = "https://github.com/apache/arrow"
+ authors = ["Apache Arrow <dev@arrow.apache.org>"]
+diff --git a/rust/datafusion/Cargo.toml b/rust/datafusion/Cargo.toml
+index fd1c1b295..a3dc70df3 100644
+--- a/rust/datafusion/Cargo.toml
++++ b/rust/datafusion/Cargo.toml
+@@ -18,7 +18,7 @@
+ [package]
+ name = "datafusion"
+ description = "DataFusion is an in-memory query engine that uses Apache Arrow as the memory model"
+-version = "4.0.0-SNAPSHOT"
++version = "4.0.0"
+ homepage = "https://github.com/apache/arrow"
+ repository = "https://github.com/apache/arrow"
+ authors = ["Apache Arrow <dev@arrow.apache.org>"]
+@@ -50,8 +50,8 @@ unicode_expressions = ["unicode-segmentation"]
+ [dependencies]
+ ahash = "0.7"
+ hashbrown = "0.11"
+-arrow = { path = "../arrow", version = "4.0.0-SNAPSHOT", features = ["prettyprint"] }
+-parquet = { path = "../parquet", version = "4.0.0-SNAPSHOT", features = ["arrow"] }
++arrow = { path = "../arrow", version = "4.0.0", features = ["prettyprint"] }
++parquet = { path = "../parquet", version = "4.0.0", features = ["arrow"] }
+ sqlparser = "0.9.0"
+ clap = "2.33"
+ rustyline = {version = "7.0", optional = true}
+diff --git a/rust/datafusion/README.md b/rust/datafusion/README.md
+index e5849b84c..819d912d4 100644
+--- a/rust/datafusion/README.md
++++ b/rust/datafusion/README.md
+@@ -127,7 +127,7 @@ To get started, add the following to your `Cargo.toml` file:
+ 
+ ```toml
+ [dependencies]
+-datafusion = "4.0.0-SNAPSHOT"
++datafusion = "4.0.0"
+ ```
+ 
+ ## Using DataFusion as a binary
+diff --git a/rust/integration-testing/Cargo.toml b/rust/integration-testing/Cargo.toml
+index 12564c74f..4fde2b75b 100644
+--- a/rust/integration-testing/Cargo.toml
++++ b/rust/integration-testing/Cargo.toml
+@@ -18,7 +18,7 @@
+ [package]
+ name = "arrow-integration-testing"
+ description = "Binaries used in the Arrow integration tests"
+-version = "4.0.0-SNAPSHOT"
++version = "4.0.0"
+ homepage = "https://github.com/apache/arrow"
+ repository = "https://github.com/apache/arrow"
+ authors = ["Apache Arrow <dev@arrow.apache.org>"]
+diff --git a/rust/parquet/Cargo.toml b/rust/parquet/Cargo.toml
+index e171196fb..cf72fa893 100644
+--- a/rust/parquet/Cargo.toml
++++ b/rust/parquet/Cargo.toml
+@@ -17,7 +17,7 @@
+ 
+ [package]
+ name = "parquet"
+-version = "4.0.0-SNAPSHOT"
++version = "4.0.0"
+ license = "Apache-2.0"
+ description = "Apache Parquet implementation in Rust"
+ homepage = "https://github.com/apache/arrow"
+@@ -41,7 +41,7 @@ lz4 = { version = "1.23", optional = true }
+ zstd = { version = "0.7", optional = true }
+ chrono = "0.4"
+ num-bigint = "0.3"
+-arrow = { path = "../arrow", version = "4.0.0-SNAPSHOT", optional = true }
++arrow = { path = "../arrow", version = "4.0.0", optional = true }
+ base64 = { version = "0.12", optional = true }
+ clap = { version = "2.33.3", optional = true }
+ serde_json = { version = "1.0", features = ["preserve_order"], optional = true }
+@@ -54,7 +54,7 @@ brotli = "3.3"
+ flate2 = "1.0"
+ lz4 = "1.23"
+ zstd = "0.7"
+-arrow = { path = "../arrow", version = "4.0.0-SNAPSHOT" }
++arrow = { path = "../arrow", version = "4.0.0" }
+ serde_json = { version = "1.0", features = ["preserve_order"] }
+ 
+ [features]
+diff --git a/rust/parquet/README.md b/rust/parquet/README.md
+index 6abbbc7aa..ff680b27c 100644
+--- a/rust/parquet/README.md
++++ b/rust/parquet/README.md
+@@ -23,7 +23,7 @@
+ Add this to your Cargo.toml:
+ ```toml
+ [dependencies]
+-parquet = "4.0.0-SNAPSHOT"
++parquet = "4.0.0"
+ ```
+ 
+ and this to your crate root:
+@@ -44,7 +44,7 @@ while let Some(record) = iter.next() {
+     println!("{}", record);
+ }
+ ```
+-See [crate documentation](https://docs.rs/crate/parquet/4.0.0-SNAPSHOT) on available API.
++See [crate documentation](https://docs.rs/crate/parquet/4.0.0) on available API.
+ 
+ ## Upgrading from versions prior to 4.0
+ 
+diff --git a/rust/parquet_derive/Cargo.toml b/rust/parquet_derive/Cargo.toml
+index 6bed07d7a..25fddf056 100644
+--- a/rust/parquet_derive/Cargo.toml
++++ b/rust/parquet_derive/Cargo.toml
+@@ -17,7 +17,7 @@
+ 
+ [package]
+ name = "parquet_derive"
+-version = "4.0.0-SNAPSHOT"
++version = "4.0.0"
+ license = "Apache-2.0"
+ description = "Derive macros for the Rust implementation of Apache Parquet"
+ homepage = "https://github.com/apache/arrow"
+@@ -39,4 +39,4 @@ uuid = []
+ proc-macro2 = "1.0"
+ quote = "1.0"
+ syn = { version = "1.0", features = ["full", "extra-traits"] }
+-parquet = { path = "../parquet", version = "4.0.0-SNAPSHOT" }
++parquet = { path = "../parquet", version = "4.0.0" }
+diff --git a/rust/parquet_derive/README.md b/rust/parquet_derive/README.md
+index 47ac8ae05..4061ff515 100644
+--- a/rust/parquet_derive/README.md
++++ b/rust/parquet_derive/README.md
+@@ -30,8 +30,8 @@ Derive also has some support for the chrono time library. You must must enable t
+ Add this to your Cargo.toml:
+ ```toml
+ [dependencies]
+-parquet = "4.0.0-SNAPSHOT"
+-parquet_derive = "4.0.0-SNAPSHOT"
++parquet = "4.0.0"
++parquet_derive = "4.0.0"
+ ```
+ 
+ and this to your crate root:
+diff --git a/rust/parquet_derive_test/Cargo.toml b/rust/parquet_derive_test/Cargo.toml
+index 5914d7ef8..07bcc588c 100644
+--- a/rust/parquet_derive_test/Cargo.toml
++++ b/rust/parquet_derive_test/Cargo.toml
+@@ -17,7 +17,7 @@
+ 
+ [package]
+ name = "parquet_derive_test"
+-version = "4.0.0-SNAPSHOT"
++version = "4.0.0"
+ license = "Apache-2.0"
+ description = "Integration test package for parquet-derive"
+ homepage = "https://github.com/apache/arrow"
+@@ -28,5 +28,5 @@ edition = "2018"
+ publish = false
+ 
+ [dependencies]
+-parquet = { path = "../parquet", version = "4.0.0-SNAPSHOT" }
+-parquet_derive = { path = "../parquet_derive", version = "4.0.0-SNAPSHOT" }
++parquet = { path = "../parquet", version = "4.0.0" }
++parquet_derive = { path = "../parquet_derive", version = "4.0.0" }
+-- 
+2.25.1
+

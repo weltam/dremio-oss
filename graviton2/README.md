@@ -183,9 +183,33 @@ graviton2/arrow-java.sh
 ```
 
 
+```sh
+ubuntu in ip-172-31-39-155 in arrow on  HEAD (f959141) [!?] via 🐍 v3.8.10 
+❯ git status
+HEAD detached at apache-arrow-4.0.0
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   java/dataset/pom.xml
+        modified:   java/dataset/src/main/java/org/apache/arrow/dataset/jni/NativeMemoryPool.java
+        modified:   java/gandiva/pom.xml
+        modified:   java/pom.xml
+```
 
+## create arrow patch
 
+```shell
+git format-patch master -o ../patches
+```
 
+# apply patch 
+
+```shell
+cd arrow-ptc
+git am ../patches/*.patch
+```
+
+https://devconnected.com/how-to-create-and-apply-git-patch-files/
 
 
 

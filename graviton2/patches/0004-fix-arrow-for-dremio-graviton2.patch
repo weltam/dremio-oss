@@ -1,0 +1,113 @@
+From 44da27d43b5398966203a80440309debbc391883 Mon Sep 17 00:00:00 2001
+From: Welly Tambunan <if05041@gmail.com>
+Date: Sat, 9 Oct 2021 22:45:19 +0000
+Subject: [PATCH 4/4] fix arrow for dremio graviton2
+
+---
+ .gitignore                                                | 2 ++
+ java/dataset/pom.xml                                      | 5 ++---
+ .../org/apache/arrow/dataset/jni/NativeMemoryPool.java    | 8 +++++++-
+ java/gandiva/pom.xml                                      | 5 ++---
+ java/pom.xml                                              | 4 ++--
+ 5 files changed, 15 insertions(+), 9 deletions(-)
+
+diff --git a/.gitignore b/.gitignore
+index 6f123362e..eb2b7c2cf 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -80,3 +80,5 @@ cpp/Brewfile.lock.json
+ 
+ # docker volumes used for caching
+ .docker
++cpp/release/
++cpp/vcpkg_installed/
+\ No newline at end of file
+diff --git a/java/dataset/pom.xml b/java/dataset/pom.xml
+index 2625b58e6..76dad3de2 100644
+--- a/java/dataset/pom.xml
++++ b/java/dataset/pom.xml
+@@ -25,7 +25,7 @@
+     <packaging>jar</packaging>
+     <properties>
+         <arrow.cpp.build.dir>../../../cpp/release-build/</arrow.cpp.build.dir>
+-        <protobuf.version>2.5.0</protobuf.version>
++        <protobuf.version>3.5.0</protobuf.version>
+         <parquet.version>1.11.0</parquet.version>
+         <avro.version>1.8.2</avro.version>
+     </properties>
+@@ -115,8 +115,7 @@
+                 <artifactId>protobuf-maven-plugin</artifactId>
+                 <version>0.5.1</version>
+                 <configuration>
+-                    <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}
+-                    </protocArtifact>
++                    <!-- <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact> -->
+                     <protoSourceRoot>../../cpp/src/jni/dataset/proto</protoSourceRoot>
+                 </configuration>
+                 <executions>
+diff --git a/java/dataset/src/main/java/org/apache/arrow/dataset/jni/NativeMemoryPool.java b/java/dataset/src/main/java/org/apache/arrow/dataset/jni/NativeMemoryPool.java
+index 83825776b..cfbbddd77 100644
+--- a/java/dataset/src/main/java/org/apache/arrow/dataset/jni/NativeMemoryPool.java
++++ b/java/dataset/src/main/java/org/apache/arrow/dataset/jni/NativeMemoryPool.java
+@@ -24,7 +24,13 @@ public class NativeMemoryPool implements AutoCloseable {
+   private final long nativeInstanceId;
+ 
+   static {
+-    JniLoader.get().ensureLoaded();
++    try {
++      JniLoader.get().ensureLoaded();
++    } catch (Exception e) {
++      e.printStackTrace();
++      throw e;
++    }
++    
+   }
+ 
+   private NativeMemoryPool(long nativeInstanceId) {
+diff --git a/java/gandiva/pom.xml b/java/gandiva/pom.xml
+index 66e1f10f6..05312781b 100644
+--- a/java/gandiva/pom.xml
++++ b/java/gandiva/pom.xml
+@@ -25,7 +25,7 @@
+     <properties>
+         <maven.compiler.source>1.8</maven.compiler.source>
+         <maven.compiler.target>1.8</maven.compiler.target>
+-        <protobuf.version>2.5.0</protobuf.version>
++        <protobuf.version>3.5.0</protobuf.version>
+         <dep.guava.version>18.0</dep.guava.version>
+         <checkstyle.failOnViolation>true</checkstyle.failOnViolation>
+         <arrow.cpp.build.dir>../../../cpp/release-build</arrow.cpp.build.dir>
+@@ -136,8 +136,7 @@
+                 <artifactId>protobuf-maven-plugin</artifactId>
+                 <version>0.5.1</version>
+                 <configuration>
+-                    <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}
+-                    </protocArtifact>
++                    <!-- <protocArtifact>protoc</protocArtifact> -->
+                     <protoSourceRoot>../../cpp/src/gandiva/proto</protoSourceRoot>
+                 </configuration>
+                 <executions>
+diff --git a/java/pom.xml b/java/pom.xml
+index 1d93eb657..829dbca98 100644
+--- a/java/pom.xml
++++ b/java/pom.xml
+@@ -33,14 +33,14 @@
+     <dep.junit.jupiter.version>5.4.0</dep.junit.jupiter.version>
+     <dep.slf4j.version>1.7.25</dep.slf4j.version>
+     <dep.guava.version>20.0</dep.guava.version>
+-    <dep.netty.version>4.1.48.Final</dep.netty.version>
++    <dep.netty.version>4.1.60.Final</dep.netty.version>
+     <dep.jackson.version>2.11.4</dep.jackson.version>
+     <dep.hadoop.version>2.7.1</dep.hadoop.version>
+     <dep.fbs.version>1.12.0</dep.fbs.version>
+     <dep.avro.version>1.10.0</dep.avro.version>
+     <arrow.vector.classifier />
+     <forkCount>2</forkCount>
+-    <checkstyle.failOnViolation>true</checkstyle.failOnViolation>
++    <checkstyle.failOnViolation>false</checkstyle.failOnViolation>
+     <errorprone.javac.version>9+181-r4173-1</errorprone.javac.version>
+   </properties>
+ 
+-- 
+2.25.1
+

@@ -1,0 +1,67 @@
+From 6d5f4682c6f528afeef5c0a23ee789873ff0ec44 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Kriszti=C3=A1n=20Sz=C5=B1cs?= <szucs.krisztian@gmail.com>
+Date: Wed, 21 Apr 2021 18:11:33 +0200
+Subject: [PATCH 2/4] [Release] Update .deb/.rpm changelogs for 4.0.0
+
+---
+ .../linux-packages/apache-arrow-apt-source/debian/changelog | 5 +++++
+ .../apache-arrow-release/yum/apache-arrow-release.spec.in   | 3 +++
+ dev/tasks/linux-packages/apache-arrow/debian/changelog      | 6 ++++++
+ dev/tasks/linux-packages/apache-arrow/yum/arrow.spec.in     | 3 +++
+ 4 files changed, 17 insertions(+)
+
+diff --git a/dev/tasks/linux-packages/apache-arrow-apt-source/debian/changelog b/dev/tasks/linux-packages/apache-arrow-apt-source/debian/changelog
+index e69de29bb..47ae27001 100644
+--- a/dev/tasks/linux-packages/apache-arrow-apt-source/debian/changelog
++++ b/dev/tasks/linux-packages/apache-arrow-apt-source/debian/changelog
+@@ -0,0 +1,5 @@
++apache-arrow-apt-source (4.0.0-1) unstable; urgency=low
++
++  * New upstream release.
++
++ -- Krisztián Szűcs <szucs.krisztian@gmail.com>  Wed, 21 Apr 2021 16:11:33 -0000
+diff --git a/dev/tasks/linux-packages/apache-arrow-release/yum/apache-arrow-release.spec.in b/dev/tasks/linux-packages/apache-arrow-release/yum/apache-arrow-release.spec.in
+index 9f546569e..de02687e8 100644
+--- a/dev/tasks/linux-packages/apache-arrow-release/yum/apache-arrow-release.spec.in
++++ b/dev/tasks/linux-packages/apache-arrow-release/yum/apache-arrow-release.spec.in
+@@ -94,6 +94,9 @@ else
+ fi
+ 
+ %changelog
++* Wed Apr 21 2021 Krisztián Szűcs <szucs.krisztian@gmail.com> - 4.0.0-1
++- New upstream release.
++
+ * Mon Jan 18 2021 Krisztián Szűcs <szucs.krisztian@gmail.com> - 3.0.0-1
+ - New upstream release.
+ 
+diff --git a/dev/tasks/linux-packages/apache-arrow/debian/changelog b/dev/tasks/linux-packages/apache-arrow/debian/changelog
+index 2adfc442d..7929097fd 100644
+--- a/dev/tasks/linux-packages/apache-arrow/debian/changelog
++++ b/dev/tasks/linux-packages/apache-arrow/debian/changelog
+@@ -1,3 +1,9 @@
++apache-arrow (4.0.0-1) unstable; urgency=low
++
++  * New upstream release.
++
++ -- Krisztián Szűcs <szucs.krisztian@gmail.com>  Wed, 21 Apr 2021 16:11:33 -0000
++
+ apache-arrow (3.0.0-1) unstable; urgency=low
+ 
+   * New upstream release.
+diff --git a/dev/tasks/linux-packages/apache-arrow/yum/arrow.spec.in b/dev/tasks/linux-packages/apache-arrow/yum/arrow.spec.in
+index 842b3b0f0..b247edcbb 100644
+--- a/dev/tasks/linux-packages/apache-arrow/yum/arrow.spec.in
++++ b/dev/tasks/linux-packages/apache-arrow/yum/arrow.spec.in
+@@ -750,6 +750,9 @@ Documentation for Apache Parquet GLib.
+ %{_datadir}/gtk-doc/html/parquet-glib/
+ 
+ %changelog
++* Wed Apr 21 2021 Krisztián Szűcs <szucs.krisztian@gmail.com> - 4.0.0-1
++- New upstream release.
++
+ * Mon Jan 18 2021 Krisztián Szűcs <szucs.krisztian@gmail.com> - 3.0.0-1
+ - New upstream release.
+ 
+-- 
+2.25.1
+
